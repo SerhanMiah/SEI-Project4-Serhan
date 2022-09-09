@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 # Create your models here.
 class Theatre(models.Model):
@@ -12,24 +14,25 @@ class Theatre(models.Model):
     price = models.PositiveIntegerField(default=None, blank=True, null=True)
     images = ArrayField(models.TextField(max_length=600, default=True))
 
-
-    catergory = models.ManyToManyField(
+    genres = models.ManyToManyField(
         "categories.Category", 
         related_name="venue"
     )
 
+    likes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='location_like')
 
-    # favourites = models.ManyToManyField(User, elated_name='favourites', blank=True)
+    dislikes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='location_dislike')
 
 
+    # likes = models.ManyToManyField(User, related_name="review")
 
     def __str__(self):
         return f"{self.name}"
 
-# class TheatreWishList(models.Model):
-#     ## this can be depend on your choice eg (user_id, guest_id etc)
-#     user_id = models.IntegerField(('user_id'))
-#     ## relation to Music
-#     plays = models.ForeignKey(Theatre, on_delete=models.DO_NOTHING)
+    def likes_total(self):
+        return self.likes.count()
+
+
+
 
 

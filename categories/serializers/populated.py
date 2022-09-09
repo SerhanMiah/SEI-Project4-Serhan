@@ -1,5 +1,5 @@
 from .common import GenreSerializer
 from venue.serializers.common import TheatreSerializer
 
-class ShowCategoriesSerializer(GenreSerializer):
-    books = TheatreSerializer(many=True)
+class PopulatedGenreSerializer(GenreSerializer):
+    plays = TheatreSerializer(many=True)

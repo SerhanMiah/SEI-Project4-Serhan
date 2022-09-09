@@ -4,20 +4,32 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound
 from .models import Theatre
 from .serializers.common import TheatreSerializer
-from .serializers.populated import ShowVenueSerializer, ShowVenuewithCategorySerializer
+from .serializers.populated import PopulatedVenueSerializer, PopulatedVenueWithGenresSerializer
 
+# ! likes testing 
+from django.shortcuts import get_object_or_404
+
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
+from .models import Theatre
+
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 # Create your views here.
 class TheatreView(APIView):
 
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
     def get(self, _request):
-        theatres = Theatre.objects.all()
-        serialized_theatre = TheatreSerializer(theatres, many=True)
+        venues = Theatre.objects.all()
+        serialized_theatre = PopulatedVenueSerializer(venues, many=True)
         return Response(serialized_theatre.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         print(request.data)
-        theatre_to_add = ShowVenuewithCategorySerializer(data=request.data)
+        theatre_to_add = TheatreSerializer(data=request.data)
         try:
             theatre_to_add.is_valid(True)
             theatre_to_add.save()
@@ -35,7 +47,7 @@ class TheatreDetail(APIView):
 
     def get(self, _request, pk):
         play = self.get_play(pk=pk)
-        serialized_book = ShowVenueSerializer(play)
+        serialized_book = PopulatedVenueSerializer(play)
         return Response(serialized_book.data)
 
     def delete(self, _request, pk):
@@ -54,23 +66,23 @@ class TheatreDetail(APIView):
             print(e)
             return Response(str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
-# def wishlist(self, request):
-#     user_id = request.POST.get('user_id')
-#     if not user_id:
-#         raise ValueError("Required music_id to set wishlist")
-#     ## can be set user id once authentication is set
-#     ##some_id = request.user.pk
-#     some_id = 3 ## Say
-#     try:
-#         music = Music.objects.get(pk=music_id)
-#         wishlist_obj = {
-#             'some_id': some_id,
-#             'music': music
-#         }
-#         WishlistMusic(**wishlist_obj).save()
-#     except ObjectDoesNotExist:
-#         ## Your action
-#         ## raise or Return HTTP response with failure status_code
-#         return Response('Some error occured, unable to add to wishlist') ## or can set for render
-        
-#     return Response('Added to wishlist') ## or can set for render
+
+class LikesView(APIView):
+
+    def VenueLike(self, request, pk):
+        post = get_object_or_404(Theatre, id=request.POST.get('Theatre_id'))
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        return Response(post.likes.data, status=status.HTTP_202_ACCEPTED)
+
+class Dislike(APIView):
+
+    def VenueDislike(self, request, pk):
+        post = get_object_or_404(Theatre, id=request.POST.get('Theatre_id'))
+        if post.dislikes.filter(id=request.user.id).exists():
+            post.dislikes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        return Response(post.likes.data, status=status.HTTP_202_ACCEPTED)
