@@ -1,16 +1,25 @@
+from urllib import request
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .serializers.common import ReviewSerializer
 from .models import Review
+
 
 # Create your views here.
 
 class ReviewListView(APIView):
 
-    
+    def get(self, request):
+
+        reviews = Review.objects.all()
+        print('end point hit?')
+        serialized_review = ReviewSerializer(reviews, many=True)
+        return Response(serialized_review.data, status=status.HTTP_200_OK)
+
     def post(self, request):
         review_to_create = ReviewSerializer(data=request.data) 
         try:
@@ -23,6 +32,7 @@ class ReviewListView(APIView):
 
 # Single review view
 class ReviewDetailView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
     def get_review(self, pk):
         try:
@@ -30,7 +40,15 @@ class ReviewDetailView(APIView):
         except Review.DoesNotExist:
             raise NotFound("Review not found!")
 
-    def delete(self, _request, pk):
+    def delete(self, request, pk):
         review_to_delete = self.get_review(pk)
+        print("REVIEW OWNER ID ->", review_to_delete.owner )
+        print("REQUEST.USER.ID ->", request.user)
+
+        if review_to_delete.owner != request.user:
+            raise PermissionDenied("Unauthorised")
+
         review_to_delete.delete()
+
         return Response(status=status.HTTP_204_NO_CONTENT)
+
