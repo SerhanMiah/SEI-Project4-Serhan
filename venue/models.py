@@ -7,22 +7,44 @@ User = get_user_model()
 # Create your models here.
 class Theatre(models.Model):
     # add age groups in the main model.
+    name = models.CharField('Title', max_length=140, default=None)
+    location = models.CharField('location', max_length=150, default=None)
+    description = models.TextField(default=None)
 
-    name = models.CharField(max_length=150, default=None, blank=True, null=True)
-    description = models.TextField(max_length=500, blank=True, null=True)
-    location = models.CharField(max_length=200, default=None, blank=True, null=True)
-    price = models.PositiveIntegerField(default=None, blank=True, null=True)
+    venue = models.CharField('Venue', max_length=100, default=None)
+
+    cast = models.TextField(default=None)
+
+    opening_date = models.CharField('Opening date', max_length=100, default=None)
+
+    registration_limit = models.IntegerField('Guest limit', default=0,
+    choices=[(0, u"No limit")] + list(zip(range(1,100), range(1,100))))
+    # images in array format
     images = ArrayField(models.TextField(max_length=600, default=True))
+
+    trailer = models.CharField(max_length=300, default=None)
 
     genres = models.ManyToManyField(
         "categories.Category", 
         related_name="venue"
     )
 
-    likes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='location_like')
+    attend = models.ManyToManyField(
+        "join.Attend",
+        related_name="venue",
+        blank=True
+    )
 
-    dislikes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='location_dislike')
+    # fav likes
+    favourites = models.ManyToManyField('jwt_auth.User', related_name='favourites', blank=True)
 
+    # like
+    likes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='theater_like')
+
+    dislikes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='theater_dislike')
+
+    
+    
 
     # likes = models.ManyToManyField(User, related_name="review")
 

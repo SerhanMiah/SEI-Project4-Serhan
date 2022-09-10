@@ -12,10 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name='Attend',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(choices=[('Comedy', 'Comedy'), ('Drama', 'Drama'), ('Epic', 'Epic'), ('Adult', 'Adult'), ('Nonsense', 'Nonsense'), ('Family&Kids', 'Family&Kids'), ('Mythopoeia', 'Mythopoeia'), ('Romance', 'Romance'), ('Satire', 'Satire'), ('Tragedy', 'Tragedy'), ('Tragicomedy', 'Tragicomedy')], default=None, max_length=100)),
+                ('name', models.CharField(blank=True, default=None, max_length=100)),
+                ('attended', models.BooleanField(blank=True)),
             ],
         ),
     ]

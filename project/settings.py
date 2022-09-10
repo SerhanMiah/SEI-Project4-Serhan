@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'venue',
     'review',
     'categories',
-    'favourites'
-    
+    'join'
 ]
 
 MIDDLEWARE = [

@@ -42,8 +42,6 @@ class ReviewDetailView(APIView):
 
     def delete(self, request, pk):
         review_to_delete = self.get_review(pk)
-        print("REVIEW OWNER ID ->", review_to_delete.owner )
-        print("REQUEST.USER.ID ->", request.user)
 
         if review_to_delete.owner != request.user:
             raise PermissionDenied("Unauthorised")
