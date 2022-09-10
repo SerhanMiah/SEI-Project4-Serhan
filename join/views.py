@@ -4,11 +4,9 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 
-
 from .models import Attend
 
 from .serializers.common import AttendSerializer
-
 
 class JoinListView(APIView):
     permission_classes = (IsAuthenticated, )

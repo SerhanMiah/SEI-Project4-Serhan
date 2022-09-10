@@ -39,6 +39,7 @@ const TheatreSingle = () => {
               <h2><span>🍽</span> Description</h2>
               <p>{theatre.description}</p>
               <hr />
+              
     
               <h2><span>🌍</span> Origin</h2>
               <p>{theatre.name}</p>

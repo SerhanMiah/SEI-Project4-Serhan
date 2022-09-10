@@ -10,9 +10,10 @@ import jwt
 from datetime import datetime, timedelta
 from django.conf import settings 
 
+
+
 # Create your views here.
 class RegisterView(APIView):
-
     def post(self, request):
         user_to_create = UserSerializer(data=request.data)
         try:

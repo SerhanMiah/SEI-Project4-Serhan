@@ -1,9 +1,9 @@
-import NavBar from './components/NavBar'
+import NavBar from './components/Navigation/NavBar'
 import Theatre from './components/Theatre'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './components/Login'
-import Register from './components/Register'
-import Footer from './components/Footer'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
+import Footer from './components/Navigation/Footer'
 import TheatreSingle from './components/TheatreSingle'
 const App = () => {
 

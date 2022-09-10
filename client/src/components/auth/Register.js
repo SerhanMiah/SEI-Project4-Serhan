@@ -8,23 +8,26 @@ import { useState } from 'react'
 
 const Register = () => {
   
-  const [ formData, setFormData ] = useState('')
-  const [ loginData, setLoginData ] = useState('')
+  const [formData, setFormData] = useState({
+    email: '',
+    username: '',
+    password: '',
+    password_confirmation: '',
+  })
+
   const [ errors, setErrors ] = useState(false)
 
-  const handleChange = (event, error) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value })
-    if (event.target.name === 'username' || event.target.name === 'password') {
-      setLoginData({ ...loginData, [event.target.name]: event.target.value })
-    }
-    setErrors(true)
+  const handleChange = (event) => {
+    const newObj = { ...formData, [event.target.name]: event.target.value }
+    setFormData(newObj)
+    setErrors('')
   }
 
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.post('api/auth/register', formData)
+      const { data } = await axios.post('api/auth/register/', formData)
       console.log(data)
     } catch (error) {
       setErrors( { ...errors, [event.target.name]: '', message: '' })
@@ -61,7 +64,7 @@ const Register = () => {
 
             <Form.Group className="mb-3" >
               <Form.Label>Confirm Password</Form.Label>
-              <Form.Control onChange={handleChange} type="password" name="confirmPassword" placeholder='Confirm Password' value={formData.confirmPassword} /> 
+              <Form.Control onChange={handleChange} type="password" name="password_confirmation" placeholder='Confirm Password' value={formData.password_confirmation} /> 
             </Form.Group>
 
             { errors && <p className='text-danger'>{errors}</p>}
