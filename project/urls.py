@@ -6,6 +6,6 @@ urlpatterns = [
     path('venue/', include('venue.urls')),
     path('review/', include('review.urls')),
     path('categories/', include('categories.urls')),
-    # path('favourites/', include('favourites.urls')),
+    path('join/', include('join.urls')),
     path('auth/', include('jwt_auth.urls'))
 ]
