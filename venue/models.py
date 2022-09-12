@@ -13,14 +13,16 @@ class Theatre(models.Model):
 
     venue = models.CharField('Venue', max_length=100, default=None)
 
-    cast = models.TextField(default=None)
-
     opening_date = models.CharField('Opening date', max_length=100, default=None)
 
     registration_limit = models.IntegerField('Guest limit', default=0,
     choices=[(0, u"No limit")] + list(zip(range(1,100), range(1,100))))
+
     # images in array format
-    images = ArrayField(models.TextField(max_length=600, default=True))
+    image_one = models.CharField(max_length=300, default=None)
+    image_two = models.CharField(max_length=300, default=None)
+    image_three = models.CharField(max_length=300, default=None)
+
 
     trailer = models.CharField(max_length=300, default=None)
 
@@ -42,9 +44,6 @@ class Theatre(models.Model):
     likes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='theater_like')
 
     dislikes = models.ManyToManyField('jwt_auth.User', blank=True,related_name='theater_dislike')
-
-    
-    
 
     # likes = models.ManyToManyField(User, related_name="review")
 

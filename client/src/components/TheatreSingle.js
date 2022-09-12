@@ -104,6 +104,20 @@ const TheatreSingle = () => {
       <Row>
         { theatre ? 
           <>
+            <Carousel>
+              <div>
+                <img src={theatre.image_one} />
+                <p className="legend">Legend 1</p>
+              </div>
+              <div>
+                <img src={theatre.image_one} />
+                <p className="legend">Legend 2</p>
+              </div>
+              <div>
+                <img src={theatre.image_one} />
+                <p className="legend">Legend 3</p>
+              </div>
+            </Carousel>
             <h1>{theatre.name}</h1>
             <Col md="6">
               {/* <img className='w-100' src={theatre.location_images} alt={theatre.name} /> */}
