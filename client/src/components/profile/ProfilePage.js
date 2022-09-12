@@ -17,17 +17,6 @@ const ProfilePage = () => {
   const [ errors, setErrors ] = useState(false)
 
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     try {
-  //       const { data } = await axios.get('/api/venue/')
-  //       setVenue(data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   getData()
-  // }, [setVenue])
 
   useEffect(() => {
     const getProfile = async () => {

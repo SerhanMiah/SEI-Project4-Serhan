@@ -87,23 +87,3 @@ class Dislike(APIView):
             post.likes.add(request.user)
         return Response(post.likes.data, status=status.HTTP_202_ACCEPTED)
 
-# ! check if this work in the front end 
-# class FavouritesView(APIView):
-#     # selecting the favourite
-#     def favourites(self, request, theatre_id):
-
-#         favourite_play = get_object_or_404(Theatre, pk=theatre_id)
-#         if favourite_play.favourites.filter(id=request.user.id).exist():
-#             favourite_play.favourites.remove(request.user)
-#         else:
-#             favourite_play.favourites.add(request.user) 
-#         return Response(request, 'favourites/product_favourite_list.html')
-
-#     # getting all the favourites not sure if this work need 
-#     def product_favourite_list(self, request):
-#         user=request.user
-#         favourite_products = user.favourites.all()
-#         context = {
-#             'favourite_products': favourite_products
-#         }
-#         return Response(request, 'favourites/product_favourite_list.html', context)

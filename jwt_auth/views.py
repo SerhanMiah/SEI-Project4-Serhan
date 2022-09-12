@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from rest_framework.exceptions import PermissionDenied
 User = get_user_model()
 from .serializers.common import UserSerializer
+from rest_framework.permissions import IsAuthenticated
 
 import jwt
 from datetime import datetime, timedelta
@@ -49,3 +50,18 @@ class LoginView(APIView):
         )
 
         return Response({ "token": token, "message": f"Welcome back {user_to_login.username}" })
+
+
+class ProfileView(APIView):
+    permission_classes = (IsAuthenticated, )
+    def get_user(self, pk):
+        try:
+            return User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise PermissionDenied(detail="Invalid Credentials")
+
+    def get(self, request):
+        user = self.get_user(pk=request.user.id)
+        serialized_user = UserSerializer(user)
+        print('userrrr', serialized_user)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)

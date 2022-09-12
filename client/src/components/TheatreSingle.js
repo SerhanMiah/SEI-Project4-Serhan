@@ -104,30 +104,16 @@ const TheatreSingle = () => {
       <Row>
         { theatre ? 
           <>
-            <Carousel>
-              <div>
-                <img src={theatre.image_one} />
-                <p className="legend">Legend 1</p>
-              </div>
-              <div>
-                <img src={theatre.image_two} />
-                <p className="legend">Legend 2</p>
-              </div>
-              <div>
-                <img src={theatre.image_three} />
-                <p className="legend">Legend 3</p>
-              </div>
-            </Carousel>
-
             <h1>{theatre.name}</h1>
             <Col md="6">
-              <img className='w-100' src={theatre.image_one} alt={theatre.name} />
+              {/* <img className='w-100' src={theatre.location_images} alt={theatre.name} /> */}
             </Col>
             <Col md="6">
               <h2>Description</h2>
               <p>{theatre.name}</p>
               <hr />
-              <p>{theatre.description}</p>
+              <h2><span>🌍</span> Origin</h2>
+              <p>{theatre.name}</p>
               <hr />
               <h2><span></span> Added by</h2>
               <p>{theatre.name}</p>
@@ -151,11 +137,12 @@ const TheatreSingle = () => {
               } }>{like.dislike}0</Button>
             </div>
             
-            <div className='review-card'>
+            <Container as='section' className='review-card'>
               <h3>Reviews</h3>
               { reviews.length > 0
                 ?
                 reviews.map(review => {
+                  const { id, owner, text } = review
                   return (                       
                     <Card key={review.id} className="re-card">
                       <Card.Body>      
@@ -163,8 +150,6 @@ const TheatreSingle = () => {
                           {review.text} - {review.owner.username}
                         </Card.Text>                 
                       </Card.Body>
-                      {/* add a delete buttong */}
-  
                     </Card>          
                   )
                 })
@@ -173,7 +158,7 @@ const TheatreSingle = () => {
                   { errors ? <h2>Something went wrong. Please try again later</h2> : <p>No reviews yet</p>}
                 </>
               }
-            </div>
+            </Container>
 
 
             <form
@@ -181,7 +166,7 @@ const TheatreSingle = () => {
               onSubmit={handleSubmitReview}>
               <textarea
                 name="text"
-                placeholder="What do you think of the play?"
+                placeholder="What do you think about this location?"
                 maxLength="280"
                 onChange={handleChange}
                 required
@@ -189,7 +174,7 @@ const TheatreSingle = () => {
               </textarea>
               <textarea
                 name="theatre"
-                placeholder="theatre play"
+                placeholder="location"
                 maxLength="280"
                 onChange={handleChange}
                 required
@@ -203,7 +188,8 @@ const TheatreSingle = () => {
                 required
               >
               </textarea>
-
+              {/* {formData.text} */}
+              {/* </textarea> */}
               <input type="submit" value="Add Comment" required />
             </form>
           </>
@@ -213,18 +199,9 @@ const TheatreSingle = () => {
           </h2>
         }
       </Row>
-      {/* <div className="App">
-        <h1>Youtube Embed</h1>
-        <YoutubeEmbed embedId="rokGy0huYEA" />
-      </div> */}
-      <div id="map">
-        {/* insert the map feature */}
-        <h1>Hello map guide</h1>
-      </div>
-
 
     </Container>
-  )   
+  ) 
 }
 
 export default TheatreSingle
