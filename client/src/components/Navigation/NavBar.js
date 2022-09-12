@@ -1,44 +1,59 @@
+
 import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import { Link, useNavigate } from 'react-router-dom'
-import { userIsAuthenticated } from '../helpers/auth'
-import Container from 'react-bootstrap/Container'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+
+import { userIsAuthenticated } from '../../components/helpers/auth'
 
 
-function NavBar() {
+const NavBar = () => {
   const navigate = useNavigate()
 
-  const handleLogout = () => {
+
+  const handleLogOut = () => {
     window.localStorage.removeItem('local-user-Token')
-    navigate('/login')
+    // window.localStorage.removeItem('local-user-Id')
+    navigate('/')
   }
-  
+
   return (
-    <Navbar expand="sm">
-      <Container as="section">
-        <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
-
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
-
-
-          <Nav.Link as={Link} to="/theatre">All theatre</Nav.Link>
-          { userIsAuthenticated()
-            ?
-            <>
-              <Nav.Link as={Link} to="/theatre/new">Add a new Theatre</Nav.Link>
-              <span onClick={handleLogout}>Logout</span>
-            </>
-            :
-            <>
-              <Nav.Link as={Link} to="/register">Register</Nav.Link>
-              <Nav.Link as={Link} to="/login">Login</Nav.Link>
-            </>
-          }
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <Nav variant="tabs" defaultActiveKey="/home">
+      <Nav.Item>
+        <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/' >Home</Nav.Link> 
+      </Nav.Item>
+      
+      <Nav.Item>
+        <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/theatre' >All theatre</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/edit-profile/:userId' >user profile</Nav.Link>
+      </Nav.Item>
+     
+      { userIsAuthenticated()
+        ?
+        <>
+          <Nav.Item>
+            <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/profile/' >User Profile</Nav.Link>
+          </Nav.Item>
+          {/* <Nav.Item>
+            <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/theatre/new' >need to add function</Nav.Link>
+          </Nav.Item> */}
+          <Nav.Item>
+            <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }}  onClick={handleLogOut}>Logout</Nav.Link>
+          </Nav.Item>
+        </>
+        :
+        <>
+          <Nav.Item>
+            <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/register'>Register</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/login'>Login</Nav.Link>
+          </Nav.Item>
+        </>      
+      }      
+    </Nav>
   )
 }
-
+  
+  
 export default NavBar

@@ -29,7 +29,7 @@ const Theatre = () => {
 
 
   return (
-    <div>
+    <div className='theatre-height'>
       <h1>Hello page</h1>
       {venueData.map((item) => {
         const { id } = item
@@ -38,7 +38,7 @@ const Theatre = () => {
           <Col key={id} md="5" lg="4" className='mb-4'>
             <Link style={{ textDecoration: 'none', color: 'black' }} to={`/theatre/${id}`}>
               <Card >
-                <Card.Img className='card-images' variant='top' src={item.images[0]}></Card.Img>
+                <Card.Img className='card-images' variant='top' src={item.image_one}></Card.Img>
                 <Card.Body className='bg-light'>
                   <Card.Title className='multi-card text-center mb-0 text-decoration-none'>{item.name} - {item.location}</Card.Title>
                 </Card.Body>
@@ -48,6 +48,8 @@ const Theatre = () => {
           </Col>
         )
       })}
+
+      
 
 
     </div>
