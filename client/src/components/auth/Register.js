@@ -4,9 +4,11 @@ import Row  from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const Register = () => {
+  const navigate = useNavigate()
   
   const [formData, setFormData] = useState({
     email: '',
@@ -29,6 +31,8 @@ const Register = () => {
     try {
       const { data } = await axios.post('api/auth/register/', formData)
       console.log(data)
+      navigate('/theatre')
+
     } catch (error) {
       setErrors( { ...errors, [event.target.name]: '', message: '' })
       console.log(error.mesage)

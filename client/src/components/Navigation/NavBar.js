@@ -24,9 +24,7 @@ const NavBar = () => {
       <Nav.Item>
         <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/theatre' >All theatre</Nav.Link>
       </Nav.Item>
-      <Nav.Item>
-        <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/edit-profile/:userId' >user profile</Nav.Link>
-      </Nav.Item>
+
      
       { userIsAuthenticated()
         ?
@@ -34,9 +32,6 @@ const NavBar = () => {
           <Nav.Item>
             <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/profile/' >User Profile</Nav.Link>
           </Nav.Item>
-          {/* <Nav.Item>
-            <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }} as={Link} to='/theatre/new' >need to add function</Nav.Link>
-          </Nav.Item> */}
           <Nav.Item>
             <Nav.Link style={{ textDecoration: 'none', color: 'black', padding: '10px, 30px' }}  onClick={handleLogOut}>Logout</Nav.Link>
           </Nav.Item>

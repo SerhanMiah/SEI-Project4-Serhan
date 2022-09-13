@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { getToken } from './helpers/auth'
+import { getToken, userIsOwner } from './helpers/auth'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import YoutubeEmbed from './video/YoutubeEmbed'
 import { Carousel } from 'react-responsive-carousel'
+
 
 const TheatreSingle = () => {
 
@@ -17,24 +18,23 @@ const TheatreSingle = () => {
   const [ like, setLike ] = useState([])
   const { playId } = useParams()
   const [ errors, setErrors ] = useState(false)
-  const [ resStatus, setResStatus] = useState([])
 
   const [ liking, setLiking ] = useState(0)
 
-  const [score, setScore] = useState(0)
   const [ reviewsRemoved, setReviewsRemoved ] = useState(0)
 
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getData = async () => {
+
       try {
-        const { data } = await axios.get(`/api/venue/${playId}`)
+        const { data } = await axios.get(`/api/venue/${playId}/`)
         console.log(data)
         setTheatre(data)
-        console.log('this is the review ---->', data.review)
+        console.log('this is the review ---->', data.review[0].id)
         setReviews(data.review)
-        setLike(data.likes)
-        console.log(setLike)
+        
       } catch (error) {
         setErrors(error.message)
         console.log(error.message)
@@ -43,18 +43,8 @@ const TheatreSingle = () => {
     getData()
   }, [playId])
 
-  function allLikes(event, likes) {
-    setLiking(liking + 1)
-    if (event.target.value === likes) {
-      setLiking(likes + 1)
-    }
-  }
-  // const headers = () => {
-  //   const token = getToken().split(' ')[1]
-  //   return {
-  //     headers: { Authorization: `Bearer ${getToken()}` },
-  //   }
-  // }
+
+
 
   const handleSubmitReview = async (event) => {
     event.preventDefault()
@@ -64,41 +54,39 @@ const TheatreSingle = () => {
           Authorization: `Bearer ${getToken()}`,
         },
       })
-      console.log(data)
+      console.log('data ------>', data)
       setReviews({ text: '', theatre_id: '', owner: '' })
       setTheatre(data)
       console.log(setReviews)
+      window.location.reload()
     } catch (error) {
       console.log(error)
       // setErrors(error)
     }
   }
-  
 
   const handleChange = async (event) => {
     setReviews({ ...reviews, [event.target.name]: event.target.value })
     setErrors({ ...errors, [event.target.name]: '', message: '' })
   }
-  const handleChangeLike = async (event) => {
-    setLike({ ...like, [event.target.name]: event.target.value })
-    // setErrors({ ...errors, [event.target.name]: '', message: '' })
+
+
+  const deleteReview = async (event) => {
+    event.preventDefault()
+    try {
+      const { data } = await axios.delete(`/api/review/${event.target.name}/`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+      console.log('review showing', data.review[0].id)
+      setReviews(data.review[0].id)
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  // const deleteReview = async (event, reviewId) => {
-  //   event.preventDefault()
-  //   try {
-  //     const { data } = await axios.delete(`/api/review/${reviewId}`, {
-  //       headers: {
-  //         Authorization: `Bearer ${getToken()}`,
-  //       },
-  //     })
-  //     console.log(data)
-  //     setReviewsRemoved(reviewsRemoved + 1)
-  //   } catch (error) {
-  //     // setErrors(error.message)
-  //     console.log(error.message)
-  //   }
-  // }
   return (
     <Container as="main">
       <Row>
@@ -110,59 +98,46 @@ const TheatreSingle = () => {
                 <p className="legend">Legend 1</p>
               </div>
               <div>
-                <img src={theatre.image_one} />
-                <p className="legend">Legend 2</p>
+                <img src={theatre.image_two} />
+                <p className="legend">Legend 3</p>
               </div>
               <div>
-                <img src={theatre.image_one} />
+                <img src={theatre.image_three} />
                 <p className="legend">Legend 3</p>
               </div>
             </Carousel>
             <h1>{theatre.name}</h1>
             <Col md="6">
-              {/* <img className='w-100' src={theatre.location_images} alt={theatre.name} /> */}
-            </Col>
-            <Col md="6">
               <h2>Description</h2>
               <p>{theatre.name}</p>
               <hr />
-              <h2><span>🌍</span> Origin</h2>
-              <p>{theatre.name}</p>
+              <h2><span>Happy</span> Venue</h2>
+              <p>{theatre.venue}</p>
               <hr />
-              <h2><span></span> Added by</h2>
-              <p>{theatre.name}</p>
-              <hr />
-              <h2><span></span> Likes</h2>
-              <p>{theatre.likes}</p>
-              <p>{theatre.dislikes}</p>
+              <h2><span></span>Location</h2>
+              <p>{theatre.location}</p>
               <hr />
               <Link to="/theatre" className='btn dark'>Back to all Home</Link>
             </Col>
-            <div className='liketest'>
-              <Button className='btn btn-primary btn-lg btn-block' variant="primary" size="lg" value={like.likes} onClick={(event) => {
-                console.log({ like })
-                allLikes(event, like ) 
-              } }>{like.likes}1</Button>
-            </div>
-            <div className='dislike-button'>
-              <Button className='btn btn-primary btn-lg btn-block' variant="primary" size="lg" value={like.likes} onClick={(event) => {
-                console.log({ like })
-                allLikes(event, like ) 
-              } }>{like.dislike}0</Button>
-            </div>
+
             
             <Container as='section' className='review-card'>
               <h3>Reviews</h3>
               { reviews.length > 0
                 ?
                 reviews.map(review => {
-                  const { id, owner, text } = review
+                  
                   return (                       
                     <Card key={review.id} className="re-card">
                       <Card.Body>      
                         <Card.Text>
                           {review.text} - {review.owner.username}
-                        </Card.Text>                 
+                        </Card.Text>  
+                        { userIsOwner(review) &&              
+                              <div className="buttons mb-4">
+                                <Button variant="danger" name={review.id} onClick={deleteReview}>Delete</Button>
+                              </div>  
+                        }                  
                       </Card.Body>
                     </Card>          
                   )
@@ -178,6 +153,7 @@ const TheatreSingle = () => {
             <form
               className="d-flex flex-column justify-content-between"
               onSubmit={handleSubmitReview}>
+              <label htmlFor="" name={setReviews.owner}></label>
               <textarea
                 name="text"
                 placeholder="What do you think about this location?"
@@ -202,8 +178,7 @@ const TheatreSingle = () => {
                 required
               >
               </textarea>
-              {/* {formData.text} */}
-              {/* </textarea> */}
+
               <input type="submit" value="Add Comment" required />
             </form>
           </>

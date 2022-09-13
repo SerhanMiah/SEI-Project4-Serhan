@@ -1,5 +1,6 @@
 import spinnerImg from '../img/spinner.gif'
 
+
 const Spinner = () => {
   return (
     <div className="spinner-wrapper">
