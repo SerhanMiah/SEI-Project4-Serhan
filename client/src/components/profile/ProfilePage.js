@@ -1,15 +1,12 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
 
+import ListGroup from 'react-bootstrap/ListGroup'
 
 import { getToken } from '../helpers/auth.js'
 import Container from 'react-bootstrap/Container'
-import Row  from 'react-bootstrap/Row'
-import  Col from 'react-bootstrap/Col'
-import Spinner from '../Spinner'
-import profileImg from '../../img/me.webp'
+
 
 const ProfilePage = () => {
 
@@ -54,21 +51,21 @@ const ProfilePage = () => {
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={userProfile.profile_image} />
               <Card.Body>
-                <Card.Title>{userProfile.username}</Card.Title>
+                <Card.Title><h1> HI, {userProfile.username}</h1></Card.Title>
                 <Card.Text>
-                  <h1>Welcome, {userProfile.name} </h1>
+                  <h1>Welcome, {userProfile.username} </h1>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc id cursus metus aliquam eleifend mi. Nulla aliquet enim tortor at auctor urna nunc id. Vivamus at augue eget arcu dictum varius duis at consectetur. Dictum fusce ut placerat orci. 
                 </Card.Text>
               </Card.Body>
-              {/* <ListGroup className="list-group-flush">
+              <ListGroup className="list-group-flush">
                 <ListGroup.Item>Cras justo odio</ListGroup.Item>
                 <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
                 <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-              </ListGroup> */}
-              {/* <Card.Body>
+              </ListGroup>
+              <Card.Body>
                 <Card.Link href="#">Card Link</Card.Link>
                 <Card.Link href="#">Another Link</Card.Link>
-              </Card.Body> */}
+              </Card.Body>
               
             </Card>
           )}
