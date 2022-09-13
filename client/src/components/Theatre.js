@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 
 import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import { Link } from 'react-router-dom'
+import Spinner from './Spinner'
 
 import { Carousel } from 'react-responsive-carousel'
 import Container from 'react-bootstrap/esm/Container'
@@ -29,57 +31,55 @@ const Theatre = () => {
     } 
     getData()
   }, [])
-  {/* <Carousel>
-      <div>
-        <img src={venueData[0].image_one} />
-        <p className="legend">Legend 1</p>
-      </div>
-
-      <div>
-        <img src={venueData[1].image_two} />
-        <p className="legend">Legend 3</p>
-      </div>
-      <div>
-        <img src={venueData[2].image_three} />
-        <p className="legend">Legend 3</p>
-      </div>
-    </Carousel> */}
-
-
 
   return (
-    <Container className='theatre-height'>
-      <div className='inner-main'>
-        <h1>Hello page</h1>
-
-        {venueData.map((item) => {
-          const { id } = item
-          console.log(item)
-          return (
-            <Col key={id} md="5" lg="4" className='mb-4'>
-              <div className='hello'>
-              
-                <Link style={{ textDecoration: 'none', color: 'black' }} to={`/theatre/${id}`}>
-                  <Card className='main-card'>
-                    <Card.Img className='card-images' variant='top' src={item.image_one}></Card.Img>
-                    <Card.Body className='bg-light'>
-                      <Card.Title className='multi-card text-center mb-0 text-decoration-none'>{item.name} - {item.location}</Card.Title>
-                    </Card.Body>
-              
-                  </Card>
-                </Link>
-              
+    <>
+      { venueData ?
+        <div className='all-theatre-page'>
+    
+          <Container as="main-page" className='destination-index'>
+            <h1 className='text-center mb-4'>All Destinations</h1>
+            <Carousel>
+              <div>
+                <img src={venueData.image_one} />
+                <p className="legend">Legend 1</p>
               </div>
-            </Col>
-          )
-        })}
-
-      
-
-      </div>
-    </Container>
+              <div>
+                <img src={venueData.image_two} />
+                <p className="legend">Legend 3</p>
+              </div>
+              <div>
+                <img src={venueData.image_three} />
+                <p className="legend">Legend 3</p>
+              </div>
+            </Carousel>
+            <Row className='destination-row'>
+              { venueData.map(item => {
+                const { id } = item
+                return (
+                  <Col key={id} md="5" lg="4" className='mb-4'>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={`/theatre/${id}`}>
+                      <Card >
+                        <Card.Img className='card-images' variant='top' src={item.image_one}></Card.Img>
+                        <Card.Body className='bg-light'>
+                          <Card.Title className='multi-card text-center mb-0 text-decoration-none'>{item.name} - {item.country}</Card.Title>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                )
+              })
+              }
+            </Row>
+          </Container>
+        </div>
+        :
+        <h2 className="text-center">
+          { errors ? 'Something went wrong. Please try again later' : <Spinner />}
+        </h2>
+      }
+    </>
   )
-
 
 }
 

@@ -6,7 +6,7 @@
     "axios": "^0.25.0",
     "bootstrap": "^5.2.1",
     "buffer": "^6.0.3",
-    "embla-carousel-autoplay": "^7.0.2",
+    "embla-carousel-autoplay": "^7.0.3",
     "eslint-plugin-react": "^7.31.8",
     "leaflet": "^1.8.0",
     "react": "^18.2.0",
@@ -15,7 +15,9 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
-    "sass": "^1.54.9"
+    "react-toastify": "^9.0.8",
+    "sass": "^1.54.9",
+    "swiper": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
