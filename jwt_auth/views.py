@@ -61,7 +61,7 @@ class ProfileView(APIView):
             raise PermissionDenied(detail="Invalid Credentials")
 
     def get(self, request):
-        user = self.get_user(pk=request.user.id)
+        user = self.get_user(request.user.id)
         serialized_user = UserSerializer(user)
         print('userrrr', serialized_user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)

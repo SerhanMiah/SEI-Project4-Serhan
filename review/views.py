@@ -40,8 +40,17 @@ class ReviewDetailView(APIView):
         except Review.DoesNotExist:
             raise NotFound("Review not found!")
 
+    def put(self, request, pk):
+        review_update = self.get.review(pk=pk)
+        if review_update.owner != request.user:
+            raise PermissionDenied("Unauthorised")
+
+        review_update.update()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
     def delete(self, request, pk):
-        review_to_delete = self.get_review(pk)
+        review_to_delete = self.get_review(pk=pk)
 
         if review_to_delete.owner != request.user:
             raise PermissionDenied("Unauthorised")
@@ -49,4 +58,11 @@ class ReviewDetailView(APIView):
         review_to_delete.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    
+
+    # update comment
+
+
+
 

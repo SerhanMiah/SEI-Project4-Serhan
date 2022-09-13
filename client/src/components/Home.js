@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <Container className='home-page'>
 
-      <h1>Home page bitches!</h1>
+      <h1>Home page !</h1>
 
     </Container>
     

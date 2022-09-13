@@ -7,7 +7,7 @@ import Footer from './components/Navigation/Footer'
 import TheatreSingle from './components/TheatreSingle'
 import ProfilePage from './components/profile/ProfilePage'
 import Home from './components/Home'
-import EditProfile from './components/profile/EditProfile'
+// import EditProfile from './components/profile/EditProfile'
 const App = () => {
 
   return (
@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/register' element={<Register />}  />
           <Route path='/login' element={<Login />}  />
           <Route path='/theatre/:playId' element={<TheatreSingle /> } />
-          <Route path='/edit-profile/:userId' element={<EditProfile /> } />
+          {/* <Route path='/edit-profile/:userId' element={<EditProfile /> } /> */}
 
 
         </Routes>
