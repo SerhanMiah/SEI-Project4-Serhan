@@ -9,6 +9,11 @@ import ProfilePage from './components/profile/ProfilePage'
 import Home from './components/Home'
 import EditProfile from './components/profile/EditProfile'
 // import EditProfile from './components/profile/EditProfile'
+import AddReview from './components/pages/AddReview'
+import EditReview from './components/pages/EditReview'
+import Landing from './components/Landing'
+
+
 const App = () => {
 
   return (
@@ -16,7 +21,7 @@ const App = () => {
       <BrowserRouter>
         <NavBar /> 
         <Routes>  
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Landing />} />
           <Route path='/login' element={<Login />} />
           <Route path='/theatre' element={<Theatre />}  />
           <Route path='/profile/' element={<ProfilePage  />} />
@@ -25,7 +30,8 @@ const App = () => {
           <Route path='/profileEdit/:userId' element={<EditProfile />}  />
           <Route path='/theatre/:playId' element={<TheatreSingle /> } />
           {/* <Route path='/edit-profile/:userId' element={<EditProfile /> } /> */}
-
+          <Route path='/add-review/:playId' element={<AddReview /> } />
+          <Route path='/edit-review/:playId/:reviewId' element={<EditReview /> } />
 
         </Routes>
         <Footer />

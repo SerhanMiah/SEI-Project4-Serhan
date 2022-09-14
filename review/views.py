@@ -42,27 +42,14 @@ class ReviewDetailView(APIView):
         except Review.DoesNotExist:
             raise NotFound("Review not found!")
 
-    # def put(self, request, pk):
-    #     review_update = self.get_review(pk=pk)
-
-    #     review_update = ReviewSerializer(data=request.data)
-    #     try:
-    #         # review_update.owner != request.user:
-    #         # raise PermissionDenied("Unauthorised")
-    #         review_update.is_valid(True)
-    #         review_update.save()
-
-    #         return Response(status=status.HTTP_204_NO_CONTENT)
-    #     except Exception as e:
-    #         print(e)
-    #         return Response(e.__dict__ if e.__dict__ else str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-    def put(self, request, pk, format=None):
+    def put(self, request, pk ):
         edit_review = self.get_review(pk)
+        request.data['owner'] = request.user.id
         edit_serializer = ReviewSerializer(edit_review, data=request.data)
         if edit_serializer.is_valid():
             edit_serializer.save()
             return Response(edit_serializer.data)
+        print('errors -----> ', edit_serializer.errors)
         return Response(edit_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

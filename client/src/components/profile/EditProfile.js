@@ -28,6 +28,8 @@ const EditProfile = () => {
   const [ venue, setVenue ] = useState([])
   const [ errors, setErrors ] = useState(false)
 
+  const [ user, setUser ] = useState([])
+
   const { userId } = useParams()
 
   const [ imageSelect, setImageSelected ] = useState('')
@@ -41,16 +43,19 @@ const EditProfile = () => {
   useEffect(() => {
     const getProfile = async () => {
       try {
-        const { data } = await axios.get('/api/auth/profile/',  {
+        const { data } = await axios.get('/api/auth/profile/', {
           headers: 
           { Authorization: `Bearer ${getToken()}` },
         })
+
         console.log(data)
         // setUserProfile(data)
         console.log('data loading user------->', setUserProfile(data))
 
+        // get request is coming back undefined
         setUserProfile(data)
         setUpdatedUserProfile(data)
+        
         // !why is it undefined
       } catch (error) {
         console.log(error)
@@ -66,8 +71,10 @@ const EditProfile = () => {
     formData.append('upload_preset', 'djssiss0') //? djssiss0 is the key + danedskby is the name 
     const { data } = await axios.post('https://api.cloudinary.com/v1_1/danedskby/image/upload', formData)
     // ! this is my (serhan miah) login for the cloudinary - for destination images
+
+    console.log(data)
     setNewProfileImg(data.url)
-    setUpdatedUserProfile({ ...updatedUserProfile, profileImg: data.url })
+    setUpdatedUserProfile({ ...updatedUserProfile, profile_image: data.url })
   }
 
   const handleSubmit = async (event) => {
@@ -81,13 +88,13 @@ const EditProfile = () => {
       console.log(data)
       navigate('/')
     } catch (error) {
-      setErrors(error.message)
-      console.log(error.message)
+      setErrors(error)
+      console.log(error)
     }
   } 
   const handleChange = (event) => {
     setUpdatedUserProfile({ ...updatedUserProfile, [event.target.name]: event.target.value })
-    setErrors({ ...errors, [event.target.name]: '', message: '' })
+    // setErrors({ ...errors, [event.target.name]: '', message: '' })
   }
 
   return (
@@ -103,7 +110,7 @@ const EditProfile = () => {
               <Form.Control type="text" name="username" placeholder="Edit display name" value={updatedUserProfile.username} onChange={handleChange} /> 
             </Form.Group>
             <Col>
-              <img className='w-100' src={userProfile.profileImg} alt={updatedUserProfile.userName} />
+              <img className='w-100' src={updatedUserProfile.profile_image} alt={updatedUserProfile.userName} />
             </Col>
             <hr />
             <Form.Group className="mb-3" >
@@ -139,6 +146,7 @@ const EditProfile = () => {
               }} />
               <Button onClick={uploadImage}>Upload image</Button>
             </Form.Group>
+
             <hr />
             <Button variant="primary" type="submit">Submit</Button>
             <hr />
