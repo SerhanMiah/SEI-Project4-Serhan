@@ -87,7 +87,7 @@ const ProfilePage = () => {
         <>
           {userProfile.email && (
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={userProfile.profile_image} />
+              <Card.Img variant="top" src={userProfile.profile_image} alt={userProfile.username} />
               <Card.Body>
                 <Card.Title><h1> HI, {userProfile.username}</h1></Card.Title>
                 <Card.Text>
