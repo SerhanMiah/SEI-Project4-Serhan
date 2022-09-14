@@ -5,7 +5,7 @@ import { getToken } from '../helpers/auth.js'
 import Container from 'react-bootstrap/Container'
 
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 import { Link } from 'react-router-dom'
@@ -28,6 +28,7 @@ const EditProfile = () => {
   const [ venue, setVenue ] = useState([])
   const [ errors, setErrors ] = useState(false)
 
+  const { userId } = useParams()
 
   const [ imageSelect, setImageSelected ] = useState('')
 
@@ -35,6 +36,7 @@ const EditProfile = () => {
   const [ newProfileImg, setNewProfileImg ] = useState('')
 
 
+  console.log(userId)
 
   useEffect(() => {
     const getProfile = async () => {
@@ -44,7 +46,7 @@ const EditProfile = () => {
           { Authorization: `Bearer ${getToken()}` },
         })
         console.log(data)
-        setUserProfile(data)
+        // setUserProfile(data)
         console.log('data loading user------->', setUserProfile(data))
 
         setUserProfile(data)
@@ -71,7 +73,7 @@ const EditProfile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.put('/api/auth/profile/', updatedUserProfile, {
+      const { data } = await axios.put(`/api/auth/profile/${userId}/`, updatedUserProfile, {
         headers: {
           Authorization: `Bearer ${getToken()}`,  
         },
@@ -98,7 +100,7 @@ const EditProfile = () => {
             <h2>Profile</h2>
             <Form.Group className="mb-3" >
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" name="displayName" placeholder="Edit display name" value={updatedUserProfile.displayName} onChange={handleChange} /> 
+              <Form.Control type="text" name="username" placeholder="Edit display name" value={updatedUserProfile.username} onChange={handleChange} /> 
             </Form.Group>
             <Col>
               <img className='w-100' src={userProfile.profileImg} alt={updatedUserProfile.userName} />
@@ -109,15 +111,24 @@ const EditProfile = () => {
               <Form.Control type="text" name="email" placeholder="Edit email" value={updatedUserProfile.email} onChange={handleChange} /> 
             </Form.Group>
             <hr />
-            <Form.Group className="mb-3" >
+            {/* <Form.Group className="mb-3" >
               <Form.Label><h2>About Me</h2></Form.Label>
               <Form.Control as="textarea" rows={4} name="aboutMeText" placeholder="Edit About Me" value={updatedUserProfile.aboutMeText} onChange={handleChange} />        
         
+            </Form.Group> */}
+            <Form.Group className="mb-3" >
+              <Form.Label>Change Password</Form.Label>
+              <Form.Control onChange={handleChange} type="password" name="password" placeholder='Password' value={updatedUserProfile.password}  />
+            </Form.Group>
+
+            <Form.Group className="mb-3" >
+              <Form.Label>Confirm Change Password</Form.Label>
+              <Form.Control onChange={handleChange} type="password" name="password_confirmation" placeholder='Confirm Password' value={updatedUserProfile.password_confirmation} /> 
             </Form.Group>
             <hr />
             <Form.Group className="mb-3" >
               { newProfileImg ? 
-                <img className='w-100' src={newProfileImg} alt={'User Uploaded Profile'} />
+                <img className='w-100' src={newProfileImg.profile_image} alt={'User Uploaded Profile'} />
                 :
                 <></>
               }

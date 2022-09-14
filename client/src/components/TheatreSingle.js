@@ -53,8 +53,7 @@ const TheatreSingle = () => {
   }, [playId])
 
 
-
-
+  
   const handleSubmitReview = async (event) => {
     event.preventDefault()
     try {
@@ -227,9 +226,6 @@ const TheatreSingle = () => {
                   </div>               
                 </div>
               </form>
-        
-
-         
             </>
             :
             <h2 className='text-center'>

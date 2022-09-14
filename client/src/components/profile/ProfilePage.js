@@ -2,12 +2,14 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { getToken } from '../helpers/auth.js'
 import Container from 'react-bootstrap/Container'
-import { useNavigate } from 'react-router-dom'
+
 import { Link } from 'react-router-dom'
 import  Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
+import { useNavigate, useParams } from 'react-router-dom'
+
 const ProfilePage = () => {
   const navigate = useNavigate()
   const [ profile, setProfile ] = useState([])
@@ -22,6 +24,11 @@ const ProfilePage = () => {
   const [ imageSelect, setImageSelected ] = useState('')
   const [ updatedUserProfile, setUpdatedUserProfile ] = useState('')
   const [ newProfileImg, setNewProfileImg ] = useState('')
+
+
+  const { userId } = useParams()
+
+  
   useEffect(() => {
     const getProfile = async () => {
       try {
@@ -51,6 +58,7 @@ const ProfilePage = () => {
     setNewProfileImg(data.url)
     setUpdatedUserProfile({ ...updatedUserProfile, profileImg: data.url })
   }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
@@ -70,6 +78,8 @@ const ProfilePage = () => {
     setUpdatedUserProfile({ ...updatedUserProfile, [event.target.name]: event.target.value })
     setErrors({ ...errors, [event.target.name]: '', message: '' })
   }
+
+  
   return (
     <Container as='main' className='profile-main'>
       <h1>{userProfile.email}</h1>
@@ -95,7 +105,9 @@ const ProfilePage = () => {
                 <Card.Link href="#">Another Link</Card.Link>
               </Card.Body> */}
               <Card.Body>
-                <Link to={'/profileEdit'} className='btn btn-primary'>Edit Profile</Link>
+                {/* <Link to={'/profileEdit/'} className='btn btn-primary'>Edit Profile</Link> */}
+                <Link to={`/profileEdit/${userProfile.id}`} className='btn btn-primary'>Edit Profile</Link>
+
               </Card.Body>
             </Card>
           )}
