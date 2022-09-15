@@ -92,7 +92,7 @@ const ProfilePage = () => {
                 <Card.Title><h1> HI, {userProfile.username}</h1></Card.Title>
                 <Card.Text>
                   <h1>Welcome, {userProfile.name} </h1>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc id cursus metus aliquam eleifend mi. Nulla aliquet enim tortor at auctor urna nunc id. Vivamus at augue eget arcu dictum varius duis at consectetur. Dictum fusce ut placerat orci.
+                  {userProfile.bio}
                 </Card.Text>
               </Card.Body>
               {/* <ListGroup className="list-group-flush">

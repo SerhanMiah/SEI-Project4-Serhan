@@ -213,6 +213,7 @@ const TheatreSingle = () => {
           }
         </Row>
       </Container>
+      
     </>
   )
 }

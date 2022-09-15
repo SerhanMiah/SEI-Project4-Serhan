@@ -102,67 +102,69 @@ const EditProfile = () => {
 
       { userProfile.email ? 
         <>
-          <Form onSubmit={handleSubmit} className="edit-user-form">
-            <h1>Name: { userProfile.email ? userProfile.email : userProfile.email}</h1>
-            <h2>Profile</h2>
-            <Form.Group className="mb-3" >
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" name="username" placeholder="Edit display name" value={updatedUserProfile.username} onChange={handleChange} /> 
-            </Form.Group>
-            <Col>
-              <img className='w-100' src={updatedUserProfile.profile_image} alt={updatedUserProfile.userName} />
-            </Col>
-            <hr />
-            <Form.Group className="mb-3" >
-              <Form.Label>{userProfile.email}</Form.Label>
-              <Form.Control type="text" name="email" placeholder="Edit email" value={updatedUserProfile.email} onChange={handleChange} /> 
-            </Form.Group>
-            <hr />
-            {/* <Form.Group className="mb-3" >
-              <Form.Label><h2>About Me</h2></Form.Label>
-              <Form.Control as="textarea" rows={4} name="aboutMeText" placeholder="Edit About Me" value={updatedUserProfile.aboutMeText} onChange={handleChange} />        
-        
-            </Form.Group> */}
-            <Form.Group className="mb-3" >
-              <Form.Label>Change Password</Form.Label>
-              <Form.Control onChange={handleChange} type="password" name="password" placeholder='Password' value={updatedUserProfile.password}  />
-            </Form.Group>
+          <Container className='section'>
+            <Form onSubmit={handleSubmit} className="edit-user-form">
+              <h1>Name: { userProfile.email ? userProfile.email : userProfile.email}</h1>
+              <h2>Profile</h2>
+              <Form.Group className="mb-3" >
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" name="username" placeholder="Edit display name" value={updatedUserProfile.username} onChange={handleChange} /> 
+              </Form.Group>
+              <Col>
+                <img className='w-100' src={updatedUserProfile.profile_image} alt={updatedUserProfile.userName} />
+              </Col>
+              <hr />
+              <Form.Group className="mb-3" >
+                <Form.Label>{userProfile.email}</Form.Label>
+                <Form.Control type="text" name="email" placeholder="Edit email" value={updatedUserProfile.email} onChange={handleChange} /> 
+              </Form.Group>
+              <hr />
+              
+              <Form.Group className="mb-3" >
+                <Form.Label><h2>About Me</h2></Form.Label>
+                <Form.Control as="textarea" rows={4} name="bio" placeholder="Edit About Me" value={updatedUserProfile.bio} onChange={handleChange} />        
+              </Form.Group>
 
-            <Form.Group className="mb-3" >
-              <Form.Label>Confirm Change Password</Form.Label>
-              <Form.Control onChange={handleChange} type="password" name="password_confirmation" placeholder='Confirm Password' value={updatedUserProfile.password_confirmation} /> 
-            </Form.Group>
-            <hr />
-            <Form.Group className="mb-3" >
-              { newProfileImg ? 
-                <img className='w-100' src={newProfileImg.profile_image} alt={'User Uploaded Profile'} />
-                :
-                <></>
-              }
-              <Form.Label><h2>Upload Image</h2></Form.Label>
-        
-              <Form.Control type="file" id="image" className="input" onChange={(event) => {
-                setImageSelected(event.target.files[0])
-              }} />
-              <Button onClick={uploadImage}>Upload image</Button>
-            </Form.Group>
+              <Form.Group className="mb-3" >
+                <Form.Label>Change Password</Form.Label>
+                <Form.Control onChange={handleChange} type="password" name="password" placeholder='Password' value={updatedUserProfile.password}  />
+              </Form.Group>
 
-            <hr />
-            <Button variant="primary" type="submit">Submit</Button>
-            <hr />
-            {/* <Link to={`/users/${userId}`} className='btn dark'>Cancel</Link> */}
-            <hr />
-          </Form>
+              <Form.Group className="mb-3" >
+                <Form.Label>Confirm Change Password</Form.Label>
+                <Form.Control onChange={handleChange} type="password" name="password_confirmation" placeholder='Confirm Password' value={updatedUserProfile.password_confirmation} /> 
+              </Form.Group>
+              <hr />
+              <Form.Group className="mb-3" >
+                { newProfileImg ? 
+                  <img className='w-100' src={newProfileImg.profile_image} alt={'User Uploaded Profile'} />
+                  :
+                  <></>
+                }
+                <Form.Label><h2>Upload Image</h2></Form.Label>
+        
+                <Form.Control type="file" id="image" className="input" onChange={(event) => {
+                  setImageSelected(event.target.files[0])
+                }} />
+                <Button onClick={uploadImage}>Upload image</Button>
+              </Form.Group>
+
+              <hr />
+              <Button variant="primary" type="submit">Submit</Button>
+              <hr />
+              {/* <Link to={`/users/${userId}`} className='btn dark'>Cancel</Link> */}
+              <hr />
+            </Form>
+          </Container>
         </>
         :
         <h2 className="text-center">
           { errors ? 'Something went wrong. Please try again later' : 'spinner' }
         </h2>
-
       }  
-
-
+      
     </Container>
+    
   )
 }
 

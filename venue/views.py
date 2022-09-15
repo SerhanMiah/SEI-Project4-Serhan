@@ -34,6 +34,7 @@ class TheatreView(APIView):
             theatre_to_add.save()
             return Response(theatre_to_add.data, status=status.HTTP_201_CREATED)
         except Exception as e:
+            print('error', e)
             return Response(e.__dict__ if e.__dict__ else str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
@@ -87,3 +88,51 @@ class Dislike(APIView):
             post.likes.add(request.user)
         return Response(post.likes.data, status=status.HTTP_202_ACCEPTED)
 
+class FavouriteList(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+    def get(self, request):
+
+        favourites = Theatre.objects.all()
+        print('end point hit?')
+        serialized_favourites = TheatreSerializer(favourites, many=True)
+        return Response(serialized_favourites.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        request.data['owner'] = request.user.id
+        favourite_to_add = TheatreSerializer(data=request.data) 
+        try:
+            favourite_to_add.is_valid(True) 
+            favourite_to_add.save() 
+            return Response(favourite_to_add.data, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            print(e)
+            return Response(e.__dict__ if e.__dict__ else str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+class FavouriteDetailList(APIView):
+    def get_favourite(self, pk):
+        try:
+            return Theatre.objects.all()
+        except Theatre.DoesNotExist:
+            raise NotFound(detail="Venue not found!")
+
+    def get(self, _request, pk):
+        play = self.get_favourite(pk=pk)
+        serialized_book = TheatreSerializer(play)
+        return Response(serialized_book.data)
+
+    def delete(self, _request, pk):
+        delete_favourite = self.get_favourite(pk=pk)
+        delete_favourite.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def post(self, request, pk):
+        favourite_to_update = self.get_favourite(pk=pk)
+        updated_favourite = TheatreSerializer(favourite_to_update, data=request.data)
+        try:
+            updated_favourite.is_valid(True)
+            updated_favourite.save()
+            return Response(updated_favourite.data, status=status.HTTP_202_ACCEPTED)
+        except Exception as e:
+            print(e)
+            return Response(str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)

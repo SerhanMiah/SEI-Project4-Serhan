@@ -10,7 +10,7 @@ class GenreListView(APIView):
     
     def get(self, _request):
         category_genres = Category.objects.all()
-        serialized_genres = PopulatedGenreSerializer(category_genres, many=True)
+        serialized_genres = PopulatedGenreSerializer(category_genres, many=False)
         return Response(serialized_genres.data)
 
 

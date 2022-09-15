@@ -47,7 +47,24 @@ const Register = () => {
       <Container className='register-form' as='main'>
         <Row>
           <h1>Register</h1>    
+          
           <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" >
+              <Form.Label>First Name</Form.Label>
+              <Form.Control  onChange={handleChange} type="text" name="first_name" placeholder='Enter your name' value={formData.first_name}  />
+              <Form.Text className="text-muted">
+                  Wll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" >
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control  onChange={handleChange} type="text" name="last_name" placeholder='Enter your name' value={formData.last_name}  />
+              <Form.Text className="text-muted">
+                  Wll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
             <Form.Group className="mb-3" >
               <Form.Label>User Name</Form.Label>
               <Form.Control onChange={handleChange} type="text" name="username" placeholder="username" value={formData.userName} /> 

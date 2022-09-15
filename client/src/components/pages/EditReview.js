@@ -83,7 +83,7 @@ const EditReview = () => {
   return (
     <main className="add-review-page justify-content-center">
       <Form className="review-form" onSubmit={handleSubmitReview}>
-        <h1>Add review</h1>
+        <h1>Edit Review</h1>
 
         <Form.Group>
           <Form.Label htmlFor="reviewText" >Review Text</Form.Label>          

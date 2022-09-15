@@ -12,6 +12,7 @@ import EditProfile from './components/profile/EditProfile'
 import AddReview from './components/pages/AddReview'
 import EditReview from './components/pages/EditReview'
 import Landing from './components/Landing'
+import AddVenue from './components/AddVenue'
 
 
 const App = () => {
@@ -32,6 +33,8 @@ const App = () => {
           {/* <Route path='/edit-profile/:userId' element={<EditProfile /> } /> */}
           <Route path='/add-review/:playId' element={<AddReview /> } />
           <Route path='/edit-review/:playId/:reviewId' element={<EditReview /> } />
+
+          <Route path='add-venue' element={<AddVenue /> } />
 
         </Routes>
         <Footer />
