@@ -5,11 +5,14 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { setId, setToken } from '../helpers/auth'
 
 
 const Register = () => {
   const navigate = useNavigate()
   
+  const [ loginData, setLoginData ] = useState('')
+
   const [formData, setFormData] = useState({
     email: '',
     username: '',
@@ -31,7 +34,7 @@ const Register = () => {
     try {
       const { data } = await axios.post('api/auth/register/', formData)
       console.log(data)
-      navigate('/theatre')
+      navigate('/login')
 
     } catch (error) {
       setErrors( { ...errors, [event.target.name]: '', message: '' })

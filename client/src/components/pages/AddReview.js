@@ -15,7 +15,6 @@ const NewReview = () => {
   const [ formData, setFormData ] = useState({
     text: '',
     theatre: parseInt(playId),
-
   })
   const [ theatre, setTheatre ] = useState(null)
   const [ reviews, setReviews ] = useState([])

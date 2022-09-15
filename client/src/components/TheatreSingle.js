@@ -10,7 +10,6 @@ import Card from 'react-bootstrap/Card'
 import YoutubeEmbed from './video/YoutubeEmbed'
 import { Carousel } from 'react-responsive-carousel'
 import Spinner from './Spinner'
-import { ListGroup } from 'react-bootstrap'
 
 const TheatreSingle = () => {
 
@@ -108,8 +107,10 @@ const TheatreSingle = () => {
       // console.log('review showing', data.review[0].id)
       setFormData(data)
       navigate('/')
-    } catch (err) {
-      console.log(err)
+    } catch (error) {
+      setErrors(error.message)
+
+      console.log(error)
     }
   }
   return (
@@ -119,19 +120,20 @@ const TheatreSingle = () => {
           { theatre ? 
             <>
               <Carousel>
+                <div className='youtube'>
+                  <YoutubeEmbed embedId={theatre.trailer} autoPlay/>
+                </div>
                 <div>
-                  <img src={theatre.image_one} />
+                  <img src={theatre.image_one} autoPlay/>
                   <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                  <img src={theatre.image_two} />
+                  <img src={theatre.image_two} autoPlay />
                   <p className="legend">Legend 3</p>
                 </div>
-                <div className='youtube'>
-                  <YoutubeEmbed embedId={theatre.trailer} />
-                </div>
+              
                 <div>
-                  <img src={theatre.image_three} />
+                  <img src={theatre.image_three} autoPlay/>
                   <p className="legend">Legend 3</p>
                 </div>
               </Carousel>
@@ -148,37 +150,24 @@ const TheatreSingle = () => {
                 <h2><span></span>Description</h2>
                 <p>{theatre.description}</p>
                 <hr />
-                {/* {theatre.trailer && 
-                <Col className='title-media mb-4 justify-content-center mt-4'>
-                  <div className='youtube'>
-                    <YoutubeEmbed embedId={theatre.trailer} />
-                  </div>
-                </Col>
-                } */}
-                <hr />
                 <Link to='/theatre' className='btn dark'>Back to all theatre</Link>
               </Col>
 
               {/* COMMENTS SECTION */}
 
               <Container as='section' className='review-card'>
-                <h3>Reviews</h3>
+                <h6>Reviews</h6>
                 { theatre.review.length > 0
                   ?
                   theatre.review.map(review => {
                     console.log(review)
                     return (                       
                       <Card key={review.id} className="re-card">
-                        {/* <Card.Img variant='top' src={reviewImgUrl[0] ? reviewImgUrl[0] : 'https://sei65-destinations.s3.eu-west-1.amazonaws.com/users/default-image.jpg' }></Card.Img> */}
                         <Card.Body>      
                           <Card.Text>
-                            {review.text}
-                          </Card.Text>  
-                          <ListGroup className="list-group-flush">
-                            {/* <ListGroup.Item><span>👤</span> {review.username}</ListGroup.Item>
-                            <ListGroup.Item>Rating: {rating}</ListGroup.Item>
-                            <ListGroup.Item>Activities: {activities.join(', ')}</ListGroup.Item> */}
-                          </ListGroup>       
+                            <h1>User: {review.owner.username}</h1>
+                            <p>{review.text} </p>
+                          </Card.Text>   
                           { userIsOwner(review) &&              
                               <div className="buttons mb-4">
                                 {/* Delete works! */}
@@ -208,7 +197,7 @@ const TheatreSingle = () => {
             </>
             :
             <h2 className='text-center'>
-              { errors ? <h2>Something went wrong.</h2> : <p>Loading</p>}
+              { errors ? 'Something went wrong. Please try again later' : <Spinner />}
             </h2> 
           }
         </Row>

@@ -59,72 +59,40 @@ const ProfilePage = () => {
     setUpdatedUserProfile({ ...updatedUserProfile, profileImg: data.url })
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    try {
-      const { data } = await axios.put('/api/auth/profile/', updatedUserProfile, {
-        headers: {
-          Authorization: `Bearer ${getToken()}`,
-        },
-      })
-      console.log(data)
-      navigate('/')
-    } catch (error) {
-      setErrors(error.message)
-      console.log(error.message)
-    }
-  }
-  const handleChange = (event) => {
-    setUpdatedUserProfile({ ...updatedUserProfile, [event.target.name]: event.target.value })
-    setErrors({ ...errors, [event.target.name]: '', message: '' })
-  }
 
   
   return (
-    <Container as='main' className='profile-main'>
-      <h1>{userProfile.email}</h1>
-      {userProfile ? (
-        <>
-          {userProfile.email && (
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={userProfile.profile_image} alt={userProfile.username} />
-              <Card.Body>
-                <Card.Title><h1> HI, {userProfile.username}</h1></Card.Title>
-                <Card.Text>
-                  <h1>Welcome, {userProfile.name} </h1>
-                  {userProfile.bio}
-                </Card.Text>
-              </Card.Body>
-              {/* <ListGroup className="list-group-flush">
-                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-              </ListGroup> */}
-              {/* <Card.Body>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
-              </Card.Body> */}
-              <Card.Body>
-                {/* <Link to={'/profileEdit/'} className='btn btn-primary'>Edit Profile</Link> */}
-                <Link to={`/profileEdit/${userProfile.id}`} className='btn btn-primary'>Edit Profile</Link>
+    <>
+      <Container as='main' className='profile-page'>
+        <div className='display'>
+          {userProfile ? (
+            <>
+              {userProfile && (
+                <>
+                  <h1>{userProfile.email}</h1><Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={userProfile.profile_image} alt={userProfile.username} />
+                    <Card.Body>
+                      <Card.Title><h1> HI, {userProfile.username}</h1></Card.Title>
+                      <Card.Text>
+                        <h1>Welcome, {userProfile.name} </h1>
+                        {userProfile.bio}
+                      </Card.Text>
+                      <Link to={`/profileEdit/${userProfile.id}`} className='btn btn-primary'>Edit Profile</Link>
 
-              </Card.Body>
-            </Card>
+                    </Card.Body>
+                  </Card>
+                </>
+            
+              )}        
+            </>
+          ) : (
+            <>
+              {errors ? <h2>Oops something went wrong.</h2> : <h2>Loading...</h2>}
+            </>
           )}
-          <h1>Welcome, {profile.email}</h1>
-          <Card>
-          </Card>
-          <hr />
-          <h1>Theatre plays you went! </h1>
-          <Card>
-          </Card>
-        </>
-      ) : (
-        <>
-          {errors ? <h2>Oops something went wrong.</h2> : <h2>Loading...</h2>}
-        </>
-      )}
-    </Container>
+        </div>
+      </Container>
+    </>
   )
 }
 export default ProfilePage

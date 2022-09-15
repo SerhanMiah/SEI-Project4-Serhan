@@ -1,4 +1,5 @@
 
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Landing = () => {
@@ -20,7 +21,7 @@ const Landing = () => {
         <div className="hero-container">
           <h1 className='display-3'>Welcome to the Theatre Review Page</h1>
           <Link to='/theatre'>
-            <button>Explore the Uk theatre</button>
+            <Button>Explore the Uk theatre</Button>
           </Link>
           <p className='lead'>To  add reviews, please register below or login</p>
           {buttons.map((button, index) => (

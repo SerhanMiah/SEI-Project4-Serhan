@@ -39,21 +39,6 @@ const Theatre = () => {
           <div className='all-theatre-page'>
     
             <Container as="main-page" className='destination-index'>
-              <h1 className='text-center mb-4'>All Theatre</h1>
-              <Carousel>
-                <div>
-                  <img src={venueData.image_one} />
-                  <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                  <img src={venueData.image_two} />
-                  <p className="legend">Legend 3</p>
-                </div>
-                <div>
-                  <img src={venueData.image_three} />
-                  <p className="legend">Legend 3</p>
-                </div>
-              </Carousel>
               <Row className='destination-row'>
                 { venueData.map(item => {
                   const { id } = item
@@ -75,9 +60,10 @@ const Theatre = () => {
             </Container>
           </div>
           :
-          <h2 className="text-center">
+          
+          <h2 className='text-center'>
             { errors ? 'Something went wrong. Please try again later' : <Spinner />}
-          </h2>
+          </h2> 
         }
       </div>
     </Container>

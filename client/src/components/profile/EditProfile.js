@@ -68,10 +68,8 @@ const EditProfile = () => {
     event.preventDefault()
     const formData = new FormData()
     formData.append('file', imageSelect)
-    formData.append('upload_preset', 'djssiss0') //? djssiss0 is the key + danedskby is the name 
+    formData.append('upload_preset', 'djssiss0') 
     const { data } = await axios.post('https://api.cloudinary.com/v1_1/danedskby/image/upload', formData)
-    // ! this is my (serhan miah) login for the cloudinary - for destination images
-
     console.log(data)
     setNewProfileImg(data.url)
     setUpdatedUserProfile({ ...updatedUserProfile, profile_image: data.url })
