@@ -10,6 +10,7 @@ import Card from 'react-bootstrap/Card'
 import YoutubeEmbed from './video/YoutubeEmbed'
 import { Carousel } from 'react-responsive-carousel'
 import Spinner from './Spinner'
+import Form from 'react-bootstrap/Form'
 
 const TheatreSingle = () => {
 
@@ -33,7 +34,7 @@ const TheatreSingle = () => {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
+  useEffect(() => {  
     const getData = async () => {
 
       try {
@@ -53,32 +54,6 @@ const TheatreSingle = () => {
   }, [playId])
 
 
-  
-  const handleSubmitReview = async (event) => {
-    event.preventDefault()
-    try {
-      const { data } = await axios.post('/api/review/', formData, {
-        headers: {
-          Authorization: `Bearer ${getToken()}`,
-        },
-      })
-
-      console.log('data ------>', data)
-      setFormData({ text: '', theatre: '', owner: '' })
-      setTheatre(data)
-      console.log(setReviews)
-      window.location.reload()
-    } catch (error) {
-      console.log(error)
-      // setErrors(error)
-    }
-  }
-
-  const handleChange = async (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value })
-    // setErrors({ ...errors, [event.target.name]: '', message: '' })
-  }
-
 
   const deleteReview = async (event) => {
     event.preventDefault()
@@ -96,23 +71,33 @@ const TheatreSingle = () => {
     }
   }
 
-  const handleEdit = async (event) => {
+  const handleSubmitReview = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.put(`/api/review/${event.target.name}/`, formData, {
+      const { data } = await axios.post('/api/review/', formData, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
       })
-      // console.log('review showing', data.review[0].id)
-      setFormData(data)
-      navigate('/')
+      console.log('data ------>', data)
+      setFormData({ text: '', theatre: '', owner: '' })
+      setTheatre(data)
+      console.log(setReviews)
+      window.location.reload()
+      navigate(`/theatre/${playId}`)
     } catch (error) {
-      setErrors(error.message)
-
       console.log(error)
+      setErrors(error)
     }
   }
+
+  const handleChange = async (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value })
+    setErrors({ ...errors, [event.target.name]: '', message: '' })
+  }
+
+
+
   return (
     <>
       <Container className='single-page' as='main'>
@@ -120,20 +105,20 @@ const TheatreSingle = () => {
           { theatre ? 
             <>
               <Carousel>
-                <div className='youtube'>
+                <div className='youtube w-100'>
                   <YoutubeEmbed embedId={theatre.trailer} autoPlay/>
                 </div>
                 <div>
-                  <img src={theatre.image_one} autoPlay/>
+                  <img className='w-100' src={theatre.image_one} autoPlay/>
                   <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                  <img src={theatre.image_two} autoPlay />
+                  <img className='w-100' src={theatre.image_two} autoPlay />
                   <p className="legend">Legend 3</p>
                 </div>
               
                 <div>
-                  <img src={theatre.image_three} autoPlay/>
+                  <img className='w-100' src={theatre.image_three} autoPlay/>
                   <p className="legend">Legend 3</p>
                 </div>
               </Carousel>
@@ -144,13 +129,14 @@ const TheatreSingle = () => {
               </Col>
               <Col md='6'>
                 <h1>{theatre.name}</h1>
-                <p>{theatre.name}</p>
+                <h2>{theatre.location}</h2>
+                <p>{theatre.venue}</p>
                 <hr />
-                <h2>Creatures</h2>
-                <h2><span></span>Description</h2>
+                <h2>Description</h2>
                 <p>{theatre.description}</p>
                 <hr />
-                <Link to='/theatre' className='btn dark'>Back to all theatre</Link>
+                <Button className='primary'><Link to='/theatre' className='btn dark'>Back to all theatre</Link></Button>
+                
               </Col>
 
               {/* COMMENTS SECTION */}
@@ -181,7 +167,9 @@ const TheatreSingle = () => {
                   })
                   :
                   <>
-                    { errors ? <h2>Something went wrong. Please try again later</h2> : <p>No reviews yet</p>}
+                    <h2 className='text-center'>
+                      { errors ? 'Login to Review' : <Spinner />}
+                    </h2> 
                   </>
                 }
               </Container>
@@ -200,6 +188,19 @@ const TheatreSingle = () => {
               { errors ? 'Something went wrong. Please try again later' : <Spinner />}
             </h2> 
           }
+          <Form onSubmit={handleSubmitReview}>
+            <div className='mb-4 w-100 h-1/2 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 pt-2'>
+              <div className='py-2 px-4 bg-white rounded-t-lg dark:bg-gray-600'>
+                <label htmlFor='comment' className='sr-only'>Your Review</label>
+                <textarea id='comment' rows='4' className='px-0 w-full text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400' name='text' value={formData.text} maxLength='280' onChange={handleChange} placeholder='Write a comment...' required></textarea>
+              </div>
+              <div className='flex justify-between items-center py-2 px-3 border-t dark:border-gray-600 '>
+                <button type="submit" value="Add Comment" name={playId} required className=" btn btn-primary inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                Post Review
+                </button>
+              </div>
+            </div>
+          </Form>
         </Row>
       </Container>
       
