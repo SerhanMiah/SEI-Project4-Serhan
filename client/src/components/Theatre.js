@@ -10,7 +10,6 @@ import Spinner from './Spinner'
 
 import { Carousel } from 'react-responsive-carousel'
 import Container from 'react-bootstrap/esm/Container'
-// import YoutubeEmbed from './video/YoutubeEmbed'
 
 
 
@@ -22,11 +21,10 @@ const Theatre = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get('/api/venue/')
-        console.log(data)
+    
         setVenueData(data)
       } catch (error) {
-        setErrors(error.message)
-        console.log(error.message)
+        setErrors(error)
       }
     } 
     getData()
@@ -35,7 +33,8 @@ const Theatre = () => {
   return (
     <Container className='main'>
       <div>
-        { venueData ?
+        { venueData 
+          ?
           <div className='all-theatre-page'>
     
             <Container as="main-page" className='destination-index'>

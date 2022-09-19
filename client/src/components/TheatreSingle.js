@@ -40,12 +40,13 @@ const TheatreSingle = () => {
 
       try {
         const { data } = await axios.get(`/api/venue/${playId}/`)
-        console.log(data)
         setTheatre(data)
-        console.log('this is the review ---->', data.review[0].id)
         setReviews(data.review)
-        setOwner(data.owner)
+        // console.log(data.review)
+        setOwner(data.review[0].owner.id)
         
+        
+
       } catch (error) {
         setErrors(error.message)
         console.log(error.message)
@@ -213,7 +214,7 @@ const TheatreSingle = () => {
                   </>
                 }
               </Container>
-              { userIsAuthenticated() ? 
+              { userIsAuthenticated()  ? 
                 <Link to={`/add-review/${playId}`}>
                   {/* <button className='back-button btn btn-primary'>Add a review</button> */}
                 </Link>
