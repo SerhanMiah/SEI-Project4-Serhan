@@ -1,0 +1,372 @@
+[
+{
+  "model": "venue.theatre",
+  "pk": 1,
+  "fields": {
+    "name": "Back to the Future The Musical",
+    "location": "411-412 Strand, London, WC2R 0NS",
+    "description": "Based on one of the most beloved movies of the 80’s, Back to the Future The Musical tells the story of Marty McFly; a regular teenager living in small town America. Skateboards. Rock’n’Roll. High school sweethearts.\r\nSlightly more unusual is that his best friend is eccentric scientist, Doctor Emmet Brown.\r\nWhen Doc Brown invents a time machine inside a modified DeLorean, Marty’s world gets turned upside down. After accidentally changing the course of history, Marty has to to fix the present, escape the past and send himself… back to the future!\r\nThe success of the Back to the Future film series has made stars Michael J Fox, who played Marty McFly, and Christopher Lloyd, who played Doc Brown into household names. Now with their full support, the Academy Award winning movie comes to the stage at the Adelphi Theatre for the first time.",
+    "venue": "Adelphi Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://media.londontheatredirect.com/Event/BackToTheFuture/event-detail-image_31339.jpg",
+    "image_two": "https://s3-eu-west-1.amazonaws.com/lwt-live/wp-content/uploads/2020/08/04141610/BTTF-Dress-Aug-21-CUa-3931_RT-Resized-1400x934.jpg",
+    "image_three": "https://s3-eu-west-1.amazonaws.com/lwt-live/wp-content/uploads/2020/08/04141757/BTTF-Dress-Aug-21-CUa-4343_RT-Resized-1400x934.jpg",
+    "trailer": "rwU_HLUKv98",
+    "genres": [
+      1
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 2,
+  "fields": {
+    "name": "Disney's The Lion King",
+    "location": "Wellington street, London, WC2E 7RQ",
+    "description": "DISNEY’S THE LION KING is based on the much-loved 1994 Disney film of the same name. The musical features a large cast of actors in beautiful animal costumes and using large puppets. The Lion King is set in the beautiful African pride lands and follows the journey of Simba, from being a wide-eyed and fearless lion cub to being King. The Lion King has enjoyed 21 years in London and lights up the West End with glorious colours and powerful music.",
+    "venue": "Lyceum Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://res.cloudinary.com/solt/image/upload/c_scale,q_90,f_auto,fl_progressive/v1508237010/The_Lion_King_Circle_Of_Life_Credit-Dewynters_Photography_Disney_reygyd.jpg",
+    "image_two": "https://britishtheatre.com/wp-content/uploads/2021/03/the-lion-king-tickets-london.jpg",
+    "image_three": "https://media.timeout.com/images/105422991/750/422/image.jpg",
+    "trailer": "o_VPnwAsQDg",
+    "genres": [
+      2
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 3,
+  "fields": {
+    "name": "& Juliet",
+    "location": "210 Shaftesbury Avenue, London, WC2H 8DP",
+    "description": "When Juliet wakes up instead of a dagger to the heart she gathers Nurse and her best girlfriends and heads to the city of lights. And Juliet sets off to prove that she is the author of her own story and that there is life, and love, after Romeo. Follow Juliet’s journey away from Verona to start anew and find herself.\r\nCome along for the ride as the original Anne Hathaway takes on her husband William Shakespeare to remix his legendary play. Will Juliet get the ending she truly deserves? And most importantly, can their love survive this battle of wills?\r\nJoin Juliet on this fabulously fresh and riotously funny journey of self-discovery and second chances, told through some of the most glittering pop anthems of the last three decades from legendary songwriter Max Martin, including …Baby One More Time, Since U Been Gone, Roar, It’s My Life, Everybody (Backstreet’s Back), Love Me Like You Do, I Want It That Way, Can’t Stop the Feeling and Can’t Feel My Face – as well as One More Try, a brand-new song written by Max especially for the musical-   all brilliantly arranged by the Tony® and Grammy® Award-winning orchestrator Bill Sherman.",
+    "venue": "Shaftesbury Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://s3.eu-west-2.amazonaws.com/media.theatre.london/files/and-juliet-musical-shaftesbury-theatre.jpg",
+    "image_two": "https://cdn.londonandpartners.com/asset/and-juliet-at-the-shaftesbury-theatre_and-juliet-miriam-teak-lee-juliet-and-ensemble-photo-johan-persson-image-courtesy-of-story-house_376953570beeb9bed9166b38fcaae9a1.jpg",
+    "image_three": "https://www.google.com/search?q=%26+juliet&sxsrf=ALiCzsZngFEYOtGR5peM6XkQuLc0n0mPcA:1662934012784&source=lnms&tbm=isch&sa=X&ved=2ahUKEwinsff43436AhXJTcAKHSnBCGQQ_AUoA3oECAIQBQ&biw=1152&bih=611&dpr=2.5#imgrc=FoJPjTHespHbQM",
+    "trailer": "v=Dm2k9nS3o20",
+    "genres": [
+      2
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 4,
+  "fields": {
+    "name": "Beauty and the Beast",
+    "location": "8 Argyll St, Soho, London W1F 7TF",
+    "description": "Based on the award-winning Disney animated feature of the same name, Beauty and the Beast follows the story of a young prince, imprisoned in the form of a Beast, who can be freed only by true love. What may be his only opportunity arrives when he meets Belle, the only human girl to ever visit the castle since it was enchanted.",
+    "venue": "London Palladium",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://www.mtishows.com/sites/default/files/show/hero/000585_hero.jpg",
+    "image_two": "https://res.cloudinary.com/dwzhqvxaz/f_auto,q_auto,fl_progressive/v1604057881/Titles/Beauty%20and%20the%20Beast/BeautyandtheBeast_Title_1920x1080.jpg",
+    "image_three": "https://lumiere-a.akamaihd.net/v1/images/uk_shows_bea-mus_gl_7_r_014a4e8d.jpeg?region=0%2C0%2C1200%2C675",
+    "trailer": "sKyZzy9vfcw",
+    "genres": [
+      2
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 5,
+  "fields": {
+    "name": "Frozen The Musical",
+    "location": "Catherine Street, West End, London WC2B 5JF",
+    "description": "A story of love, hope and knowing yourself, Frozen hit our screens back in 2013 and has been melting our hearts ever since. Now, the global phenomenon that brought us iconic characters like Elsa, Anna, Olaf, Sven and Prince Hans has made its way from Arendelle to the West End.\r\nGet ready for the story of Disney’s Frozen the Musical to come alive on stage. With groundbreaking sets, stunning special effects, exquisite costumes and magical touches, the performance will delight and amaze audiences of all ages. Book your Frozen the Musical tickets now.",
+    "venue": "Theatre Royal Drury Lane",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://s3-eu-west-1.amazonaws.com/lwt-live/wp-content/uploads/2021/01/14100616/Frozen_JAN21_LW_Masthead_1600x1000px-1600x1000.jpg",
+    "image_two": "https://assets.playbill.com/editorial/3149499ff12794980ab162ae865fbe65-ciara-renee-as-elsa-photo-by-mary-ellen-matthews.jpg",
+    "image_three": "https://d32uwaumftsuh7.cloudfront.net/Pictures/1024x536/0/3/2/22032_caissielevyelsaandthecompanyoftheoriginalbroadwayproductionoffrozen.photobydeenvanmeer_744122.jpg",
+    "trailer": "IYryppT1oP4",
+    "genres": [
+      2
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 6,
+  "fields": {
+    "name": "The Phantom of the Opera",
+    "location": "Haymarket, St. James's, London SW1Y 4QL",
+    "description": "Far beneath the majesty and splendour of the Paris Opera House, hides the Phantom in a shadowy existence. Shamed by his physical appearance and feared by all, the love he holds for his beautiful protégée Christine Daaé is so strong that even her heart cannot resist.\r\nAndrew Lloyd Webber’s mesmerising score magically combines with jaw-dropping scenery and breath-taking special effects to bring this tragic love story to life each night.\r\n“Remains one of the most beautiful, spectacular productions in history” Sunday Express",
+    "venue": "Her Majesty’s Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://britishtheatre.com/wp-content/uploads/2021/08/3.-THE-PHANTOM-OF-THE-OPERA.-Killian-Donnelly-The-Phantom-and-Lucy-St-Louis-Christine-Photography-by-Johan-Persson.jpg",
+    "image_two": "https://images.ctfassets.net/6pezt69ih962/2AjdMaz3UFunnWrOv46mTX/c1e141cbafa341f7ec2743705b9f1b4c/PhantomOfTheOperaTickets-imresizer.jpeg?h=550&fm=jpg",
+    "image_three": "https://www.whatsonstage.com/dyn/photos/whatsonstage/v1finw2400x0y0w1200h607/the-phantom-of-the-opera-135698.jpg",
+    "trailer": "HOS2x8CMt7Y",
+    "genres": [
+      3
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 7,
+  "fields": {
+    "name": "Dirty Dancing",
+    "location": "268-269 Tottenham Court Rd, Fitzrovia, London W1T 7AQ",
+    "description": "Dirty Dancing, based on the 1987 movie of the same name, is about the summer romance between Frances ‘Baby’ Houseman and Johnny Castle, a dance instructor at a holiday resort.",
+    "venue": "Dominion Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://media.londontheatredirect.com/Event/DirtyDancing/event-list-image_34132.jpg",
+    "image_two": "https://media.londontheatredirect.com/Event/DirtyDancing/event-gallery-image_34478.jpg",
+    "image_three": "https://www.westendtheatre.com/wp-content/gallery/dirty-dancing-2013/3.jpg",
+    "trailer": "3tZo6aXsaOs",
+    "genres": [
+      4
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 8,
+  "fields": {
+    "name": "Bat Out Of Hell",
+    "location": "Peacock Theatre",
+    "description": "BAT OUT OF HELL is a Rocky-Horror, Romeo-and-Juliet celebration of star-crossed lovers from opposite sides of the tracks caught in a city teetering on the brink of disaster. When Raven falls in love with the rebellious Strat, all bets are off in this love-at-all-costs, rock-and-roller coaster story based on uncompromising youth.",
+    "venue": "Portugal St, Holborn, London WC2A 2HT",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://res.cloudinary.com/dwzhqvxaz/f_auto,q_auto,fl_progressive/v1575471414/Titles/Bat%20Out%20Of%20Hell/BatOutofHell_Title_1920x1080.jpg",
+    "image_two": "https://assets.playbill.com/editorial/2d3159ed5429318f406e3d9646cfc651-danielle-steers-as-zahara-front-centre-with-the-cast-of-bat-out-of-hell-credit-specular.jpg",
+    "image_three": "https://i.guim.co.uk/img/media/3b75b7ccb0370aeb19fb0873e465707079f74616/0_505_3365_2019/master/3365.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=849748562b88562bd234f15d9f9bad52",
+    "trailer": "FbFxZg23KIo",
+    "genres": [
+      5
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 9,
+  "fields": {
+    "name": "Grease",
+    "location": "268-269 Tottenham Court Rd, Fitzrovia, London W1T 7AQ",
+    "description": "When new girl Sandy starts at Rydell High with a tale of summer romance, she’s surprised to find her fling, Danny, at the same school. Danny is equally shocked to see Sandy, and he has to decide whether to maintain his cool reputation or open his heart to the love they previously shared. With pressure on them from both of their friend groups, along with all of the other trials high-schoolers face, will they manage to set aside their differences and follow their hearts?",
+    "venue": "Dominion Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://media.londontheatredirect.com/Event/Grease/event-detail-image_35631.jpg",
+    "image_two": "https://media.londontheatredirect.com/Event/Grease/event-gallery-image_24574.jpg",
+    "image_three": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F9fd78b04-d2ac-11e6-b721-fbd88801f92d.jpg?crop=1814%2C1209%2C102%2C84",
+    "trailer": "3weBDp8MDc0",
+    "genres": [
+      6
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 10,
+  "fields": {
+    "name": "Dear Evan Hansen",
+    "location": "85-88 St Martin's Ln, Charing Cross, London WC2N 4AP",
+    "description": "The Dear Evan Hansen musical centres around high school teenager Evan, who struggles with social anxiety disorder every day. After a classmate commits suicide, he finds himself at the centre. He invents a friendship with the boy in a misguided attempt to comfort the grieving family, fabricating email chains as proof. When this spirals out of control, Evan becomes the face of a viral video about loneliness, and the importance of speaking out.\r\nNow, caught in the lie, Evan must choose whether to live in the fantasy that he has accidentally created, or whether to come clean and face losing everything he’s always wanted.",
+    "venue": "Noël Coward Theatre",
+    "opening_date": "2018",
+    "registration_limit": 0,
+    "image_one": "https://britishtheatre.com/wp-content/uploads/2018/10/Dear-Evan-hansen-noel-coward-theatre-Matthew-Murphy.jpg",
+    "image_two": "https://www.delfontmackintosh.co.uk/imgs/shows/dear-evan-hansen/generic/dear-evan-hansen-title-treatment-large.jpg",
+    "image_three": "https://www.hollywoodreporter.com/wp-content/uploads/2016/12/dear_evan_hansen_production_still.jpg",
+    "trailer": "r716R3KhZh8",
+    "genres": [
+      1
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 11,
+  "fields": {
+    "name": "The Book of Mormon",
+    "location": "31 Coventry Street, London, United Kingdom, W1D 6AS",
+    "description": "The Book of Mormon musical follows the journey of two Mormon missionaries who travel to Africa to preach their religion. They share their scriptures with a small village in Uganda, but find it difficult to interest the locals who have much bigger things to worry about: AIDS, famine, and local warlords. It features hilarious songs like \"Hello\", \"All American Prophet\", \"I Believe\" and \"I Am Africa\".",
+    "venue": "Prince of Wales Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://images.ctfassets.net/6pezt69ih962/7ajeCKs1Q51faHSR4YN3UQ/12042b044794aab26ce5e02f41eed626/Mormon-1200-140921.jpg",
+    "image_two": "https://cdn.londonandpartners.com/asset/the-book-of-mormon-the-musical-at-the-prince-of-wales-theatre_the-book-of-mormon-company-photo-johan-persson_bfb1792fbbca2a2659935e2cf630509d.jpg",
+    "image_three": "https://res.cloudinary.com/solt/image/upload/c_scale,q_90,f_auto,fl_progressive/v1543590209/The-Book-of-Mormon-London-2018.-.-Photo-credit-Johan-Persson_aijalu.jpg",
+    "trailer": "yIFLMF_jdZI",
+    "genres": [
+      8,
+      1,
+      7
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 12,
+  "fields": {
+    "name": "Come From Away",
+    "location": "Charing Cross Road, London, WC2h 0JP",
+    "description": "COME FROM AWAY tells the story of the incredible real-life story of 7,000 passengers from all over the world grounded in their planes on an island in Canada called Newfoundland during the wake of 9/11. The small community of Gander invites these ‘come from aways’ into their lives. From feelings of unease and fear comes trust and music as the passengers and the residents of Gander come together and share their stories and form friendships and bonds that will last a lifetime.",
+    "venue": "Phoenix Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://res.cloudinary.com/dwzhqvxaz/f_auto,q_auto,fl_progressive/v1548938835/Titles/Come%20From%20Away/CFA19_Q1_124_ATG_2560x1440.jpg",
+    "image_two": "https://images.ctfassets.net/6pezt69ih962/4j9Plivo6OP56Wnw6Cp7g5/1f763ebaed60e8921d4baae8725630e5/ComeFromAway1200.png",
+    "image_three": "https://assets.playbill.com/editorial/_articleLeadImage/f67861f149df248e77afc050587bbed8-normal-5a148e01-9521-49e4-bf96-b38a2eb3820a.jpg",
+    "trailer": "Bb5udOUW1Q0",
+    "genres": [
+      7
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 13,
+  "fields": {
+    "name": "Best of Enemies",
+    "location": "85-88 St Martin's Ln, Charing Cross, London WC2N 4AP",
+    "description": "1968 – a year of protest that divided America. As two men fight to become the next President, all eyes are on the battle between two others: the cunningly conservative William F. Buckley Jr., and the iconoclastic liberal Gore Vidal. Beliefs are challenged and slurs slung as these political idols feud nightly in a new television format, debating the moral landscape of a shattered nation. Little do they know they’re about to open up a new frontier in American politics, and transform television news forever…",
+    "venue": "Noël Coward Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://images.ctfassets.net/6pezt69ih962/1hc7Nb0dV2tV98fFrgHAxe/4a3c76203579e1c597d76113d8262fc9/BOE22_Q3_016_TTG_480x720_V1.jpg?h=1360&fm=jpg",
+    "image_two": "https://images.ctfassets.net/6pezt69ih962/1hc7Nb0dV2tV98fFrgHAxe/4a3c76203579e1c597d76113d8262fc9/BOE22_Q3_016_TTG_480x720_V1.jpg?h=1360&fm=jpg",
+    "image_three": "https://www.culturewhisper.com/redactor_uploads/22917b8a773b153b4b462077f77d9665.jpg",
+    "trailer": "Z6Xg0zA7s8M",
+    "genres": [
+      8
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 14,
+  "fields": {
+    "name": "Aladdin - The West End Musical",
+    "location": "Old Compton St, London W1D 4HS",
+    "description": "Disney’s Aladdin, a fabulous tale of daring, magic, deceitful sorcerers and hilarious genies, brings a whole new world to London’s West End.\r\n\r\nBased on the 1992 classic Academy Award-winning film, Disney’s Aladdin takes London audiences into a world filled with beauty, comedy and breath-taking spectacle.\r\n\r\nThe musical tells the well-known story of a savvy street urchin who finds himself caught up in the nefarious plans of an evil magician, falls for a stunning princess, and befriends a wonderfully funny lamp-dwelling magical being.\r\n\r\nAnd with three magical wishes made available by his new friend Genie, Aladdin has the chance to reinvent his persona completely. But in doing so, will he abandon what made him… Aladdin?\r\n\r\nIn 2010, renowned composer Alan Menken confirmed a musical adaptation of the movie was in the works. Four years later, the esteemed musical opened on Broadway, featuring much-loved songs including A Whole New World, Friend Like Me and Arabian Nights, along with new songs written especially for the stage production. Disney’s Aladdin finally transferred to the Prince Edward Theatre in London’s West End in the Summer of 2016.\r\n\r\nDisney’s Aladdin’s new music is penned by Menken and Howard Ashman, The Lion King’s Sir Tim Rice and Elf’s Chad Beguelin, who also wrote the book. Special effects are created by Jim Steinmeyer, the master illusionist who assisted David Copperfield.\r\n\r\nThe Olivier nominated and Tony Award-winning production is led by Matthew Croke in the title role, with former Sugababe and In The Heights star Jade Ewen as Princess Jasmine. Having provided many a scene-stealing turn in the New York production, Trevor Dion Nicholas plays Genie.\r\n\r\nWest End audiences can now delight in breathtaking sets, mind-blowing special effects and over 350 lavish costumes in this unmissable production directed and choreographed by The Book Of Mormon’s Casey Nicholaw.\r\n\r\nLooking for more about Disney’s Aladdin? Check out our ‘Everything You Need To Know’ about Disney’s Aladdin guide!\r\n\r\nAnd if you’re a teacher/careers advisor, Education Packs for this show (and more) are available in our Schools Resources area.\r\n\r\nLooking to see some musical theatre? Find out more about London musicals.",
+    "venue": "Prince Edward Theatre",
+    "opening_date": "2013",
+    "registration_limit": 0,
+    "image_one": "https://www.londonboxoffice.co.uk/news/public/reviews/aladdin-review.jpg",
+    "image_two": "https://images.squarespace-cdn.com/content/v1/551eb398e4b0b101cf722ed8/1620734322731-8G1LBU3I5V3SW9OXATBV/7cbWev5kNe.jpg",
+    "image_three": "https://lumiere-a.akamaihd.net/v1/images/image_643583d1.jpeg?region=0,0,1920,1080",
+    "trailer": "B2jmDT64nJ0",
+    "genres": [
+      2
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 15,
+  "fields": {
+    "name": "Les Misérables",
+    "location": "Sondheim Theatre, London",
+    "description": "Adapted from the original epic novel by Victor Hugo, the Les Misérables musical is set against the backdrop of 19th-century France and tells a moving story of unrequited love, sacrifice, passion, redemption, and revolutionary spirit. The newly-free prisoner Jean Valjean builds a new, respectable life for himself but is hunted by the prison guard Javert, all while revolutionaries fight for freedom in France.",
+    "venue": "Sondheim Theatre",
+    "opening_date": "2018",
+    "registration_limit": 0,
+    "image_one": "https://res.cloudinary.com/solt/image/upload/q_80:420,fl_progressive,f_auto/v1566915717/LES_MISERABLES_TOUR._One_Day_More._Photo_Matthew_Murphy_lodlna.jpg",
+    "image_two": "https://cdn.londonandpartners.com/asset/les-miserables-the-musical-at-the-sondheim-theatre_les-misrables-image-courtesy-of-cameron-mackintosh_ad232ab3bdd04c7732f990133baf4ae5.jpg",
+    "image_three": "https://assets.playbill.com/editorial/efee25a727ef7fb7494d5c7d7718fcf2-les-miserables-the-staged-concert-photograph-credit-michael-le-poer-trench.jpg",
+    "trailer": "x7xUyZQ1-3k",
+    "genres": [
+      8
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+},
+{
+  "model": "venue.theatre",
+  "pk": 16,
+  "fields": {
+    "name": "Harry Potter And The Cursed Child: Both Parts",
+    "location": "Palace Theatre, Shaftesbury Avenue, London W1D 5AY",
+    "description": "Adventure runs in the family. When Harry Potter’s head-strong son Albus befriends the son of his fiercest rival, Draco Malfoy, it sparks an unbelievable new journey for them all—with the power to change the past and future forever. Prepare for a mind-blowing race through time, spectacular spells, and an epic battle, all brought to life with the most astonishing theatrical magic ever seen on stage.",
+    "venue": "Palace Theatre",
+    "opening_date": "2016",
+    "registration_limit": 0,
+    "image_one": "https://i.guim.co.uk/img/media/5c64a65cfad0ee7738cd53455c5348ffb55223ee/0_108_5751_3453/master/5751.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=2e0e3da44d9fea5c6e5a8d9d1e2b8c51",
+    "image_two": "https://images.ctfassets.net/usf1vwtuqyxm/54esqG5NxjuODq2TZTV16D/194b84bc5c0cc7d7c55428bb48485902/HPCC-cursed-child-delphi-scorpius-albus-time-turner-broadway-new-york-high-res-web-landscape?fm=jpg&q=70&w=2560",
+    "image_three": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2018%2F04%2F04-harry-potter-and-the-cursed-child-e28093-nyc-photo-by-matthew-murphy-2000.jpg&q=60",
+    "trailer": "YUo7_04yBaE",
+    "genres": [
+      2
+    ],
+    "attend": [],
+    "favourites": [],
+    "likes": [],
+    "dislikes": []
+  }
+}
+]
