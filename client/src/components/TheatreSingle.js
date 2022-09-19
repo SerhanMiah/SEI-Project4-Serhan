@@ -12,6 +12,7 @@ import { Carousel } from 'react-responsive-carousel'
 import Spinner from './Spinner'
 import Form from 'react-bootstrap/Form'
 
+
 const TheatreSingle = () => {
 
   const [ theatre, setTheatre ] = useState(null)
@@ -53,8 +54,6 @@ const TheatreSingle = () => {
     getData()
   }, [playId])
 
-
-
   const deleteReview = async (event) => {
     event.preventDefault()
     try {
@@ -63,13 +62,22 @@ const TheatreSingle = () => {
           Authorization: `Bearer ${getToken()}`,
         },
       })
-      console.log('review showing', data.review[0].id)
-      setReviews(data.review[0].id)
-      navigate('/')
-    } catch (err) {
-      console.log(err)
+      console.log(data)
+      setReviewsRemoved(reviewsRemoved + 1)
+    } catch (error) {
+      setErrors(error.message)
+      console.log(error.message)
     }
   }
+
+  // swiper! 
+ 
+
+
+
+
+
+
 
   const handleSubmitReview = async (event) => {
     event.preventDefault()
@@ -87,7 +95,7 @@ const TheatreSingle = () => {
       navigate(`/theatre/${playId}`)
     } catch (error) {
       console.log(error)
-      setErrors(error)
+      setErrors(error.message)
     }
   }
 
@@ -138,31 +146,63 @@ const TheatreSingle = () => {
                 <Button className='primary'><Link to='/theatre' className='btn dark'>Back to all theatre</Link></Button>
                 
               </Col>
-
               {/* COMMENTS SECTION */}
 
               <Container as='section' className='review-card'>
                 <h6>Reviews</h6>
-                { theatre.review.length > 0
+                <h2 className="text-center">Review Section</h2>
+                { theatre.review.length >= 0
                   ?
                   theatre.review.map(review => {
                     console.log(review)
+                 
                     return (                       
-                      <Card key={review.id} className="re-card">
-                        <Card.Body>      
-                          <Card.Text>
-                            <h1>User: {review.owner.username}</h1>
-                            <p>{review.text} </p>
-                          </Card.Text>   
-                          { userIsOwner(review) &&              
+                      <> 
+
+                        
+                        {/* Review list */}
+                        <div className="review-list">
+                          
+                          <div className="container">
+                          
+	
+                            <div className="card">
+                              <div className="card-body">
+                                <div className="row">
+                                  <div className="col-md-2">
+                                    <img src={review.owner.profile_image} className="img img-rounded img-fluid"/>
+                                    <p className="text-secondary text-center">{review.created_at}</p>
+                                  </div>
+                                  <div className="col-md-10">
+                                
+                                    <div className="clearfix"></div>
+                                    <p>{review.text}</p>
+                                    { userIsOwner(review) &&              
                               <div className="buttons mb-4">
                                 {/* Delete works! */}
                                 <Button name={review.id} onClick={deleteReview}>Delete</Button>
                                 <Link to={`/edit-review/${playId}/${review.id}/`} className='btn btn-primary'>Edit Review</Link>
                               </div>  
-                          }                         
-                        </Card.Body>
-                      </Card>          
+                                    }                         
+                                  
+                                  </div>
+                                </div>
+                              
+                                <div className="card-body">
+                                  <div className="row">
+                                    <div className="col-md-2">
+                                    
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                             
+                      </>                    
                     )
                   })
                   :
@@ -175,7 +215,7 @@ const TheatreSingle = () => {
               </Container>
               { userIsAuthenticated() ? 
                 <Link to={`/add-review/${playId}`}>
-                  <button className='back-button btn btn-primary'>Add a review</button>
+                  {/* <button className='back-button btn btn-primary'>Add a review</button> */}
                 </Link>
                 :
                 <Link to={'/'}>
@@ -192,7 +232,7 @@ const TheatreSingle = () => {
             <div className='mb-4 w-100 h-1/2 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 pt-2'>
               <div className='py-2 px-4 bg-white rounded-t-lg dark:bg-gray-600'>
                 <label htmlFor='comment' className='sr-only'>Your Review</label>
-                <textarea id='comment' rows='4' className='px-0 w-full text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400' name='text' value={formData.text} maxLength='280' onChange={handleChange} placeholder='Write a comment...' required></textarea>
+                <textarea id='comment' rows='4' className=' w-100 px-0 w-full text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400' name='text' value={formData.text} maxLength='280' onChange={handleChange} placeholder='Write a comment...' required></textarea>
               </div>
               <div className='flex justify-between items-center py-2 px-3 border-t dark:border-gray-600 '>
                 <button type="submit" value="Add Comment" name={playId} required className=" btn btn-primary inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">

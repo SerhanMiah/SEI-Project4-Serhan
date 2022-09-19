@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
+import mainPicture from '../../img/cw-49089.jpeg'
 
 const ProfilePage = () => {
   const navigate = useNavigate()
@@ -62,15 +63,22 @@ const ProfilePage = () => {
 
   
   return (
-    <>
-      <Container as='main' className='profile-page'>
-        <div className='display'>
-          {userProfile ? (
-            <>
-              {userProfile && (
-                <>
-                  <h1>{userProfile.email}</h1><Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={userProfile.profile_image} alt={userProfile.username} />
+    <Container as='main' className='Profile-page'>
+      <div className='display'>
+        {userProfile ? (
+          <>
+            {userProfile && (
+              <div className="container">
+                <div className="fb-profile">
+                  
+                  <img align="left" className="fb-image-lg" src={mainPicture} alt="Profile image example"/>
+
+
+                  {/* <img align="left" className="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/9/" alt="Profile image example"/> */}
+
+                  <Card.Img align="left" className="fb-image-profile thumbnail"  src={userProfile.profile_image} alt={userProfile.username} />
+
+                  <div className="fb-profile-text">
                     <Card.Body>
                       <Card.Title><h1> HI, {userProfile.username}</h1></Card.Title>
                       <Card.Text>
@@ -80,19 +88,22 @@ const ProfilePage = () => {
                       <Link to={`/profileEdit/${userProfile.id}`} className='btn btn-primary'>Edit Profile</Link>
 
                     </Card.Body>
-                  </Card>
-                </>
-            
-              )}        
-            </>
-          ) : (
-            <>
-              {errors ? <h2>Oops something went wrong.</h2> : <h2>Loading...</h2>}
-            </>
-          )}
-        </div>
-      </Container>
-    </>
+                    {/* <h1>Eli Macy</h1>
+                    <p>Girls just wanna go fun.</p> */}
+                  </div>
+                </div>
+              </div>
+            )
+            }
+          </>
+        )  : (
+          <>
+            {errors ? <h2>Oops something went wrong.</h2> : <h2>Loading...</h2>}
+          </>
+        )}
+      </div>
+    </Container>
   )
 }
+
 export default ProfilePage

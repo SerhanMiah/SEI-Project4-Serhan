@@ -1,3 +1,13 @@
+@import './TheatreSingle.scss';
+@import './NavBar.scss';
+@import './NotFound.scss';
+@import './EditProfile.scss';
+@import './ProfilePage.scss';
+
+
+
+
+
 * {
   box-sizing: border-box; 
   font-family: 'Roboto', sans-serif;
@@ -13,17 +23,7 @@
   };
 }
 
-.nav {
-  --bs-nav-link-padding-x: 3rem;
-  --bs-nav-link-padding-y: 0.5rem;
-}
 
-.nav-tabs {
-  justify-content: center;
-  --bs-nav-tabs-border-width: 2px;
-  --bs-nav-tabs-border-color: darkgray;
-  --bs-nav-tabs-link-hover-border-color: darkgray;
-}
 
 .hero {
   display: flex;
@@ -64,6 +64,7 @@ button {
 
 card {
   box-shadow: 0px 2px 10px rgba(0,0,0,0.2); 
+  margin-bottom: 25px;
 }
 
 .card-img-top {
@@ -135,13 +136,19 @@ p {
   padding: 18px;
 }
 
+
+.card {
+  margin-bottom: 25px;
+}
+
 .card-text{
   color: black;
 }
 
 .card-body {
-  background-color: rgba(0,0,0,0.5);
+  // background-color: rgba(0,0,0,0.5);
   color: black;
+  
 }
 
 .single-image {
@@ -279,7 +286,22 @@ div.list-group-item {
   }
 }
 
+.userprofile-wrapper {
+  width: 800px;
+}
 
+.edit-profile-hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: $bg;
+  .hero-container{
+    // background-color: $overlay;
+    padding: 30px;
+    border-radius: 8px;
+  }
+}
 
 .user-profilePage {
   width: 30rem;
@@ -313,7 +335,7 @@ div.list-group-item {
 
 
 .profile-page {
-  background-image: linear-gradient(rgba(219,233,244,0.3), rgba(219,233,244,0.3)), url('../img/cw-49089.jpeg');
+  // background-image: linear-gradient(rgba(219,233,244,0.3), rgba(219,233,244,0.3)), url('../img/cw-49089.jpeg');
   padding-top: 100px;
   background-size: cover;
   display: flex;
@@ -322,3 +344,206 @@ div.list-group-item {
   justify-content: center;
   height: 100vh;
 }
+
+
+
+// profile section 
+body{margin-top:20px;}
+.avatar{
+width:200px;
+height:200px;
+}				              
+
+#about-section {
+  background: rgba(32, 33, 36, 0.1);
+  position: relative;
+}
+
+.blockabout {
+  padding: 20px;
+  background: white;
+}
+
+.blockabout-inner {
+  padding: 30px;
+  border: 1px solid rgba(32, 33, 36, 0.1);
+}
+
+.sosmed-horizontal a i {
+  border: 1px solid #070707;
+  border-radius: 50%;
+  color: #070707;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  margin: auto 3px;
+  font-size: 15px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.rey-btn {
+  border: 2px solid #070707;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+
+
+
+
+
+body{margin-top:20px;
+  background:#eee;
+  }
+  .review-list ul li .left span {
+       width: 32px;
+       height: 32px;
+       display: inline-block;
+  }
+   .review-list ul li .left {
+       flex: none;
+       max-width: none;
+       margin: 0 10px 0 0;
+  }
+   .review-list ul li .left span img {
+       border-radius: 50%;
+  }
+   .review-list ul li .right h4 {
+       font-size: 16px;
+       margin: 0;
+       display: flex;
+  }
+   .review-list ul li .right h4 .gig-rating {
+       display: flex;
+       align-items: center;
+       margin-left: 10px;
+       color: #ffbf00;
+  }
+   .review-list ul li .right h4 .gig-rating svg {
+       margin: 0 4px 0 0px;
+  }
+   .country .country-flag {
+       width: 16px;
+       height: 16px;
+       vertical-align: text-bottom;
+       margin: 0 7px 0 0px;
+       border: 1px solid #fff;
+       border-radius: 50px;
+       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+   .country .country-name {
+       color: #95979d;
+       font-size: 13px;
+       font-weight: 600;
+  }
+   .review-list ul li {
+       border-bottom: 1px solid #dadbdd;
+       padding: 0 0 30px;
+       margin: 0 0 30px;
+  }
+   .review-list ul li .right {
+       flex: auto;
+  }
+   .review-list ul li .review-description {
+       margin: 20px 0 0;
+  }
+   .review-list ul li .review-description p {
+       font-size: 14px;
+       margin: 0;
+  }
+   .review-list ul li .publish {
+       font-size: 13px;
+       color: #95979d;
+  }
+  
+  .review-section h4 {
+       font-size: 20px;
+       color: #222325;
+       font-weight: 700;
+  }
+   .review-section .stars-counters tr .stars-filter.fit-button {
+       padding: 6px;
+       border: none;
+       color: #4a73e8;
+       text-align: left;
+  }
+   .review-section .fit-progressbar-bar .fit-progressbar-background {
+       position: relative;
+       height: 8px;
+       background: #efeff0;
+       -webkit-box-flex: 1;
+       -ms-flex-positive: 1;
+       flex-grow: 1;
+       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+       background-color: #ffffff;
+      ;
+       border-radius: 999px;
+  }
+   .review-section .stars-counters tr .star-progress-bar .progress-fill {
+       background-color: #ffb33e;
+  }
+   .review-section .fit-progressbar-bar .progress-fill {
+       background: #2cdd9b;
+       background-color: rgb(29, 191, 115);
+       height: 100%;
+       position: absolute;
+       left: 0;
+       z-index: 1;
+       border-radius: 999px;
+  }
+   .review-section .fit-progressbar-bar {
+       display: flex;
+       align-items: center;
+  }
+   .review-section .stars-counters td {
+       white-space: nowrap;
+  }
+   .review-section .stars-counters tr .progress-bar-container {
+       width: 100%;
+       padding: 0 10px 0 6px;
+       margin: auto;
+  }
+   .ranking h6 {
+       font-weight: 600;
+       padding-bottom: 16px;
+  }
+   .ranking li {
+       display: flex;
+       justify-content: space-between;
+       color: #95979d;
+       padding-bottom: 8px;
+  }
+   .review-section .stars-counters td.star-num {
+       color: #4a73e8;
+  }
+   .ranking li>span {
+       color: #62646a;
+       white-space: nowrap;
+       margin-left: 12px;
+  }
+   .review-section {
+       border-bottom: 1px solid #dadbdd;
+       padding-bottom: 24px;
+       margin-bottom: 34px;
+       padding-top: 64px;
+  }
+   .review-section select, .review-section .select2-container {
+       width: 188px !important;
+       border-radius: 3px;
+  }
+  ul, ul li {
+      list-style: none;
+      margin: 0px;
+  }
+  .helpful-thumbs, .helpful-thumb {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+  }

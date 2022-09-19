@@ -12,7 +12,8 @@ import EditReview from './components/pages/EditReview'
 import Landing from './components/Landing'
 import AddVenue from './components/AddVenue'
 import NotFound from './components/NotFound'
-
+import Review from './components/Review'
+import ModalImagesPreview from './components/ModalImagesPreview'
 const App = () => {
 
   return (
@@ -35,6 +36,8 @@ const App = () => {
           <Route path='add-venue' element={<AddVenue /> } />
 
           <Route path="*" element={<NotFound />} />
+          <Route path='/review-template' element={<Review />} />
+          <Route path='/model' element={<ModalImagesPreview />}  />
 
         </Routes>
         <Footer />

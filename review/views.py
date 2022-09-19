@@ -29,7 +29,7 @@ class ReviewListView(APIView):
             review_to_create.save() 
             return Response(review_to_create.data, status=status.HTTP_201_CREATED)
         except Exception as e:
-            print(e)
+            print(review_to_create.e)
             return Response(e.__dict__ if e.__dict__ else str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 # Single review view
@@ -60,7 +60,7 @@ class ReviewDetailView(APIView):
             raise PermissionDenied("Unauthorised")
 
         review_to_delete.delete()
-
+        print('errors -----> ', review_to_delete.errors)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 

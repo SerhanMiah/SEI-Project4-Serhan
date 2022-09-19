@@ -1,0 +1,11 @@
+.nav {
+  --bs-nav-link-padding-x: 3rem;
+  --bs-nav-link-padding-y: 0.5rem;
+}
+
+.nav-tabs {
+  justify-content: center;
+  --bs-nav-tabs-border-width: 2px;
+  --bs-nav-tabs-border-color: darkgray;
+  --bs-nav-tabs-link-hover-border-color: darkgray;
+}
