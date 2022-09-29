@@ -154,7 +154,7 @@ code goes here
 The last phase for part three involved getting the user to edit their profile page. I needed to go back to the API and insert a few more models under the user, which will hold a first name, last name and bio. I passed through the selected models as blank to equal true, as shown below so that when the user registers they will not need to input this information and can be adjusted in the edit user profile section.
 
 
-### Phase Four Styling the Frontend
+### Phase 4 Styling the Frontend
 
 The last few days were spent styling and adding my creative style to the website. I did spend this time refactoring the code to incorporate React by making it workable on mobile devices. I added React Responsive Carousel, which is a plugin to add multiple carousel images, shown on individual pages, while I try to refactor some of the codes. I also embedded the website with a youtube video by using a youtube unique id and calling the video with a function, which was a nice feature. 
 
