@@ -1,0 +1,82 @@
+[
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$FpUIukmYkzRrBfKQ994qaS$Ars1/QKc7Zp22iVLgCE7JhE22HEI3Tb+KXWE6iwdt/Q=",
+    "last_login": "2022-09-15T10:56:41.001Z",
+    "is_superuser": true,
+    "username": "serhan",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-09-15T10:56:09.101Z",
+    "email": "serhan@email.com",
+    "profile_image": "",
+    "bio": "True",
+    "first_name": "",
+    "last_name": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$2DKQPm6Lo9GREgTL12uTtC$8do6SfB4OGoCfe1zZKrMvUxOyWFqZmIYJo7687fkJ/8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-19T08:04:46.824Z",
+    "email": "user@email.com",
+    "profile_image": "http://res.cloudinary.com/danedskby/image/upload/v1663598309/kysmbqcyop6ovbljjx03.jpg",
+    "bio": "bio about me",
+    "first_name": "Serhan",
+    "last_name": "miah",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$5dbC6KKJWWVq5zLiXIL5TG$i55UKP6Re6l+EwMSkWCKM1TwnQS2UkldYL3/9TOGRX0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "newuser",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-19T15:17:46.444Z",
+    "email": "newuser@email.com",
+    "profile_image": "",
+    "bio": "True",
+    "first_name": "serhan",
+    "last_name": "mia",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$FBV9CHnm0z8h9f2xniwHn0$/tAcrZwtoh/ohBQNgkUD10miK4B1IyTqcKKoVSsDrr4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bug",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-09-19T18:03:37.840Z",
+    "email": "superbug@email.com",
+    "profile_image": "",
+    "bio": "True",
+    "first_name": "Serhan",
+    "last_name": "miah",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

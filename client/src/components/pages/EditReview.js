@@ -17,7 +17,6 @@ const EditReview = () => {
   const [ formData, setFormData ] = useState({
     text: '',
     theatre: parseInt(playId),
-
   })
   const [ theatre, setTheatre ] = useState(null)
   const [ reviews, setReviews ] = useState([])
@@ -39,7 +38,6 @@ const EditReview = () => {
       try {
         const { data } = await axios.get(`/api/venue/${playId}/`)
         // console.log(data)
-
         setTheatre(data)
         // console.log('this is the review ---->', data.review[0].id)
         setReviews(data.review)
