@@ -641,30 +641,33 @@ Travel Library Index Page:
 
 Travel Library INDIVIDUAL PAGE:
 
-![theatre-screenshot](./src/img/screenshots/image11.png)
+![theatre-screenshot](./client/screenshots/image11.png)
+
 
 
 
 Travel Library Register Page and Login Page:
 
 Register
-![theatre-screenshot](./src/img/screenshots/image4.png)
+![theatre-screenshot](./client/screenshots/image4.png)
+
 
 
 login
-![theatre-screenshot](./src/img/screenshots/image8.png)
+![theatre-screenshot](./client/screenshots/image8.png)
+
 
 
 
 
 Profile page:
 
-![theatre-screenshot](./src/img/screenshots/image1.png)
+![theatre-screenshot](./client/screenshots/image1.png)
 
 
 User Profile:
 
-![theatre-screenshot](./src/img/screenshots/image27.png)
+![theatre-screenshot](./client/screenshots/image27.png)
 
 
 ## Wins & Challenges
