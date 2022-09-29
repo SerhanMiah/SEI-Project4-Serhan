@@ -1,4 +1,4 @@
-# Project 3 - Travel Library 
+# Project 4 - Theatre Social App
 
 ## Project Overview
 
@@ -37,7 +37,7 @@ Clone or download the repo then in your Terminal run the following commands:
 * Be deployed online so it's publicly accessible.
 
 
-![Theatre-screenshot](./src/img/screenshots/image4.png)
+![theatre-screenshot](./client/screenshots/image7.png)
 
 ## Technologies used:
 
@@ -82,16 +82,19 @@ This project consisted of four phase
 Once I determined the nature of the app, I planned the relationships with Escalidraw and LucidChart. Then I built the API with Django using Apps, Views, and URLs. I still need to test each endpoint on Insomnia to ensure the API will function.
 
 Wireframe: 
-![theatre-screenshot]()
+![theatre-screenshot](./client/screenshots/image22.png)
 
 
 
 ERD - Relationship Planning:
+![theatre-screenshot](./client/screenshots/image15.png)
 
 By using LucidChart, simply another tool for planning like Excalidraw but specifically for detailing Entity Relationships. The above is showing how I would link OneToMany and ManytoMany relationship between the user, venue, category, review and join apps and models. 	
 Throughout my planning, I used Git and GitHub for version control and decided that since I am working on this solo it would be good practice to work on branches and add, commit and push changes regularly. During the project, I created a Trello with a completed task list. To ensure that I focus on one task at a time and to make sure that I complete the work. By creating a to-do list I was able to keep on top of the project.
 
 Trello Board: 
+![theatre-screenshot](./client/screenshots/image24.png)
+
 
 ### Phase 2: Creating the backend with Django and Rest Framework:
 
@@ -154,7 +157,7 @@ code goes here
 The last phase for part three involved getting the user to edit their profile page. I needed to go back to the API and insert a few more models under the user, which will hold a first name, last name and bio. I passed through the selected models as blank to equal true, as shown below so that when the user registers they will not need to input this information and can be adjusted in the edit user profile section.
 
 
-### Phase Four Styling the Frontend
+### Phase 4 Styling the Frontend
 
 The last few days were spent styling and adding my creative style to the website. I did spend this time refactoring the code to incorporate React by making it workable on mobile devices. I added React Responsive Carousel, which is a plugin to add multiple carousel images, shown on individual pages, while I try to refactor some of the codes. I also embedded the website with a youtube video by using a youtube unique id and calling the video with a function, which was a nice feature. 
 
