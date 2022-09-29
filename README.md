@@ -1,4 +1,7 @@
-# Project 4 - Theatre Social App
+# Project 4 - Theatre Review App
+
+![theatre-screenshot](./client/screenshots/image5.png)
+
 
 ## Project Overview
 
@@ -10,8 +13,9 @@ A 7-day solo project where I used Django, Rest Framework, Python, CLI, AJAX, Jav
 You will find the completed project here: https://sei65-theatre.herokuapp.com/theatre
 
 To see the full features for Theatre, please feel free to log in using the following credentials:
-email: user@email.com
-password: Password@
+
+ * email: user@email.com
+ * password: Password@
 
 
 ## Code Installation:
