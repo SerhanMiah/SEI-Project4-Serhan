@@ -10,7 +10,7 @@ A 7-day solo project where I used Django, Rest Framework, Python, CLI, AJAX, Jav
 
 ## Deployment
 
-You will find the completed project here: https://sei65-theatre.herokuapp.com/theatre
+You will find the completed project here: https://sei65-theatre.fly.dev/
 
 To see the full features for Theatre, please feel free to log in using the following credentials:
 
