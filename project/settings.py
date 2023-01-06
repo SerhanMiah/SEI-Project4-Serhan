@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-(9*8+6zw%69uo$-=1*kl@-_=2kf-7^1d_o8nmj_&viyel(&wfw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-f998.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,15 +83,26 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     'NAME': 'theatre-api', 
+#     'HOST': 'localhost',
+#     'PORT': 5432
+#     } 
+# }
+
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'theatre-api', 
-    'HOST': 'localhost',
-    'PORT': 5432
-    } 
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'TvEHWtmcUYkyS5KBWUVi',
+        'HOST': 'containers-us-west-141.railway.app',
+        'PORT': '7904',
+    }
 }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
